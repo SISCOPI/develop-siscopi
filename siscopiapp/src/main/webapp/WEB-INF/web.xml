@@ -28,11 +28,6 @@
 		<servlet-name>facesServlet</servlet-name>
 		<url-pattern>*.xhtml</url-pattern>
 	</servlet-mapping>
-<!--        <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/faces/*</url-pattern>
-         <url-pattern>/javax.faces.resource/*</url-pattern>
-    </servlet-mapping>-->
 	<session-config>
 		<session-timeout>
 			30
@@ -41,7 +36,7 @@
 	<welcome-file-list>
 		<welcome-file>index.xhtml</welcome-file>
 	</welcome-file-list>
-        
+
 
 </web-app>
 
