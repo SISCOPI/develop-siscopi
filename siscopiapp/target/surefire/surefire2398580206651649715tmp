@@ -1,0 +1,7 @@
+#surefire
+#Mon Jul 03 10:25:34 CDT 2017
+maven.ext.class.path=C\:\\Program Files\\NetBeans 8.2\\java\\maven-nblib\\netbeans-eventspy.jar
+user.dir=D\:\\repo siscopi\\develop-siscopi\\siscopiapp
+localRepository=C\:\\Users\\Mary\\.m2\\repository
+netbeans.deploy=true
+basedir=D\:\\repo siscopi\\develop-siscopi\\siscopiapp
