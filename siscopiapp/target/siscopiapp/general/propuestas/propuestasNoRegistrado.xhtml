@@ -1,96 +1,284 @@
 <!DOCTYPE html>
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	template="/WEB-INF/facelets/templates/defaultTemplate.xhtml">
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                template="/WEB-INF/facelets/templates/defaultTemplate.xhtml"
+                xmlns:f="http://java.sun.com/jsf/core">
 
 
-	<ui:define name="content">
-<!-- 		<div id="ms-preload" class="ms-preload"> -->
-<!-- 			<div id="status"> -->
-<!-- 				<div class="spinner"> -->
-<!-- 					<div class="dot1"></div> -->
-<!-- 					<div class="dot2"></div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-<!-- 		</div> -->
+
+    <ui:define name="content">
+        <!-- 		<div id="ms-preload" class="ms-preload"> -->
+        <!-- 			<div id="status"> -->
+        <!-- 				<div class="spinner"> -->
+        <!-- 					<div class="dot1"></div> -->
+        <!-- 					<div class="dot2"></div> -->
+        <!-- 				</div> -->
+        <!-- 			</div> -->
+        <!-- 		</div> -->
 
 
-		<div class="container">
-			<div class="">
-				<h:form>
-					<h2 class="">Fecha solicitud:</h2>
+        <div class="container">
+            <div class="row">
 
-					<label id="fechahoy" class=""></label>
+                <div class="card card-primary animated fadeInUp animation-delay-7">
+                    <div class="ms-hero-bg-primary ms-hero-img-mountain">
+                        <h2 class="text-center no-m pt-1 pb-1 color-white index-1">Nueva
+                            Propuesta</h2>
+                    </div>
+                    <div class="text-right">
+                        <span class="label label-primary text-l-size-20">Fecha Solicitud</span>
 
-					<h2 class="">Aspectos Generales</h2>
+                        <h:outputText styleClass="label label-success text-l-size-20" value="#{now}">
+                            <f:convertDateTime pattern="MM/dd/yyyy" type="date" />
+                        </h:outputText>
+                    </div>
+                    <div class="card nav-tabs-ver-container">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <ul class="nav nav-tabs-ver" role="tablist">
+                                    <li role="presentation" class="active"><a href="#aspectos" aria-controls="aspectos" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i>Aspectos Generales</a></li>
+                                    <li role="presentation"><a href="#fechas" aria-controls="fechas" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i> Fechas</a></li>
+                                    <li role="presentation"><a href="#carreras" aria-controls="carreras" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i> Carreras/Ingenierias en las que impacta el proyecto</a></li>
+                                    <li role="presentation"><a href="#responsable" aria-controls="responsable" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i> Responsable(s) /asesor</a></li>
+                                    <li role="presentation"><a href="#solicitante" aria-controls="solicitante" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i> Datos del solicitante</a></li>
+                                    <li role="presentation"><a href="#detalle" aria-controls="detalle" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i> Detalle</a></li>
 
-
-					<h2 class="">Detalle del proyecto</h2>
-
-
-				</h:form>
-			</div>
-
-
-		</div>
-		<div class="container">
-			<div class="row">
-
-				<div class="card card-primary animated fadeInUp animation-delay-7">
-					<div class="ms-hero-bg-primary ms-hero-img-mountain">
-						<h2 class="text-center no-m pt-4 pb-4 color-white index-1">Nueva
-							Propuesta</h2>
-					</div>
-					<div class="card-block">
-						<h:form class="form-horizontal">
-							<fieldset>
-								<div class="form-group">
-									<label for="inputName" class="col-md-2 control-label">Name</label>
-									<div class="col-md-9">
-										<input type="text" class="form-control" id="inputName"
-											placeholder="Name" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="inputEmail" class="col-md-2 control-label">Email</label>
-									<div class="col-md-9">
-										<input type="email" class="form-control" id="inputEmail"
-											placeholder="Email" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="inputSubject" class="col-md-2 control-label">Subject</label>
-									<div class="col-md-9">
-										<input type="text" class="form-control" id="inputSubject"
-											placeholder="Subject" />
-									</div>
-								</div>
-								<div class="form-group">
-									<label for="textArea" class="col-md-2 control-label">Message</label>
-									<div class="col-md-9">
-										<textarea class="form-control" rows="5" id="textArea"
-											placeholder="Your message..."></textarea>
-									</div>
-								</div>
-								<div class="form-group">
-									<div class="col-md-9 col-md-offset-2">
-										<button type="submit" class="btn btn-raised btn-primary">Submit</button>
-										<button type="button" class="btn btn-danger">Cancel</button>
-									</div>
-								</div>
-							</fieldset>
-						</h:form>
-					</div>
-				</div>
+                                </ul>
+                            </div>
+                            <div class="col-md-9 nav-tabs-ver-container-content">
+                                <div class="card-block">
+                                    <div class="tab-content">
+                                        <div role="tabpanel" class="tab-pane active" id="aspectos">
+                                            <div class="card-block">
+                                                <h:form class="form-horizontal" id="formPropuesta">
+                                                    <fieldset>
+                                                        <div class="form-group">
+                                                            <label for="inputName" class="col-md-2 control-label">Nombre del proyecto</label>
+                                                            <div class="col-md-9">
+                                                                <input type="text" class="form-control" id="inputName"
+                                                                       placeholder="Nombre del proyecto" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="inputEmail" class="col-md-2 control-label">Objetivo</label>
+                                                            <div class="col-md-9">
+                                                                <input type="text" class="form-control" id="inputObjetivo"
+                                                                       placeholder="Objetivo" />
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="inputSubject" class="col-md-2 control-label">Entregables</label>
+                                                            <!--<h:graphicImage id="imgaddentre" class="imge" name="img/mas.png" onclick="mostrar(this)"/>-->
+                                                            <div class="col-md-9">
 
 
-			</div>
-		</div>
-		<!-- container -->
 
-	</ui:define>
+
+                                                                <div id="entregable">
+                                                                    <p:inputTextarea cols="50" rows="5" id="nentregable" widgetVar="entregableW"/>
+                                                                    <a onclick="return mostrar(this);" class="btn btn-sm btn-raised btn-info" id="imgaddentreindividual">Agregar Entregable</a>
+                                                                    <!--<h:graphicImage id="imgaddentreindividual" class="imgaddentreindividual" name="img/masv.png" onclick="mostrar(this)"/>-->
+                                                                </div>
+
+                                                                <div id="entregables" style="display:none">
+
+                                                                    <div class="card card-primary">
+                                                                        <div class="card-header">
+                                                                            <h3 class="card-title"><i class="zmdi zmdi-graduation-cap"></i>Entregables</h3>
+                                                                        </div>
+                                                                        <table id="tentregables" class="table table-no-border table-striped">
+                                                                            <thead>
+                                                                                <tr>
+                                                                                    <th class="text-center">No</th>
+                                                                                    <th class="text-center">Entregable</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+
+                                                                            </tbody>
+                                                                        </table>
+
+                                                                    </div> <!-- /example -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="form-group">
+                                                            <div class="col-md-9 col-md-offset-2">
+                                                                <button type="submit" class="btn btn-raised btn-success">Guardar</button>
+                                                                <button type="button" class="btn btn-raised btn-danger">Cancel</button>
+                                                            </div>
+                                                        </div>
+                                                    </fieldset>
+                                                </h:form>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="fechas">
+                                            <div class="form-group">
+                                                <p:outputLabel for="ca1" value="Inicio:" />
+                                                <p:calendar id="ca1" value="#{calendarView.date2}" />
+                                            </div>
+                                            <div class="form-group">
+                                                <p:outputLabel for="ca2" value="Fin:" />
+                                                <p:calendar id="ca2" value="#{calendarView.date2}" />
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-9 col-md-offset-2">
+                                                    <button type="submit" class="btn btn-raised btn-success">Guardar</button>
+                                                    <button type="button" class="btn btn-raised btn-danger">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="carreras">
+                                            <div class="form-group">
+                                                <h3>1</h3>
+                                                <h:inputText  class="form-control text-l-size-16"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <h3>2</h3>
+                                                <h:inputText  class="form-control text-l-size-16"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <h3>3</h3>
+                                                <h:inputText  class="form-control text-l-size-16"/>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-9 col-md-offset-2">
+                                                    <button type="submit" class="btn btn-raised btn-success">Guardar</button>
+                                                    <button type="button" class="btn btn-raised btn-danger">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="responsable">
+                                            <div class="form-group">
+                                                <label for="nombreAsesor" class="col-md-2 control-label">Nombre</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" id="nombreAsesor"
+                                                           placeholder="Nombre(s) del asesor" />
+                                                </div>
+                                                <label for="apAsesor" class="col-md-2 control-label">Apellido Paterno</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" id="apAsesor"
+                                                           placeholder="Apellido Paterno del asesor" />
+                                                </div>
+                                                <label for="amAsesor" class="col-md-2 control-label">Apellido Materno</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" id="amAsesor"
+                                                           placeholder="Apellido Materno del asesor" />
+                                                </div>
+                                                <label for="cargoA" class="col-md-2 control-label">Cargo</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" id="cargoA"
+                                                           placeholder="Cargo del Asesor" />
+                                                </div>
+                                                <label for="telAsesor" class="col-md-2 control-label">Telefono</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" id="telAsesor"
+                                                           placeholder="Telefono o celular a 10 posiciones" />
+                                                </div>
+                                                <label for="emailAsesor" class="col-md-2 control-label">Email</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" id="emailAsesor"
+                                                           placeholder="Email del asesor" />
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-9 col-md-offset-2">
+                                                    <button type="submit" class="btn btn-raised btn-success">Guardar</button>
+                                                    <button type="button" class="btn btn-raised btn-danger">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="solicitante">
+                                            <div class="form-group">
+                                                <label for="nombreSolicitante" class="col-md-2 control-label">Nombre</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" id="nombreSolicitante"
+                                                           placeholder="Nombre(s) del solicitante" />
+                                                </div>
+                                                <label for="apSolicitante" class="col-md-2 control-label">Apellido Paterno</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" id="apSolicitante"
+                                                           placeholder="Apellido paterno del solicitante" />
+                                                </div>
+                                                <label for="amSolicitante" class="col-md-2 control-label">Apellido Materno</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" id="amSolicitante"
+                                                           placeholder="Apellido materno del solicitante" />
+                                                </div>
+
+                                                <label for="telSolicitante" class="col-md-2 control-label">Telefono</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" id="telSolicitante"
+                                                           placeholder="Telefono o celular a 10 posiciones" />
+                                                </div>
+                                                <label for="emailSolicitante" class="col-md-2 control-label">Email</label>
+                                                <div class="col-md-9">
+                                                    <input type="text" class="form-control" id="emailSolicitante"
+                                                           placeholder="Email del Solicitante" />
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-9 col-md-offset-2">
+                                                    <button type="submit" class="btn btn-raised btn-success">Guardar</button>
+                                                    <button type="button" class="btn btn-raised btn-danger">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div role="tabpanel" class="tab-pane" id="detalle">
+                                            <div class="col-md-9 col-md-offset-2">
+                                                <h2><span  class="label label-primary">Actividad</span></h2>
+                                            </div>
+                           
+                                            <div id="actividad">
+                                                <div class="col-md-9 col-md-offset-2">
+                                                    <p:inputTextarea cols="70" rows="3" id="nactividad"/>
+                                                    <a onclick="return mostrar(this);" class="btn btnbtn-raised btn-info" id="imgaddactiindividual">Agregar Actividad</a>
+                                                </div>
+                                            </div>
+                                            <div id="actividades" style="display:none">
+                                                <table id="tactividades" class="table table-no-border table-striped">
+                                                    <thead>
+							<tr>
+                                                            <th class="text-center">No</th>
+                                                            <th class="text-center">Actividad</th>
+							</tr>
+                                                    </thead>
+                                                    <tbody>
+										
+                                                    </tbody>
+						</table>
+									
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-9 col-md-offset-2">
+                                                    <button type="submit" class="btn btn-raised btn-success">Guardar</button>
+                                                    <button type="button" class="btn btn-raised btn-danger">Cancel</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+        </div>
+        <!-- container -->
+
+
+
+
+    </ui:define>
 
 
 
