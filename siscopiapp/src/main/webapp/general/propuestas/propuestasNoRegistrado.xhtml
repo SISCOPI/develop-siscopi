@@ -55,17 +55,16 @@
                                                 <h:form class="form-horizontal" id="formPropuesta">
                                                     <fieldset>
                                                         <div class="form-group">
-                                                            <label for="inputName" class="col-md-2 control-label">Nombre del proyecto</label>
+                                                            <label for="nombrePropuesta" class="col-md-2 control-label">Nombre del proyecto</label>
                                                             <div class="col-md-9">
-                                                                <input type="text" class="form-control" id="inputName"
-                                                                       placeholder="Nombre del proyecto" />
+                                                                <h:inputText class="form-control" id="nombrePropuesta"
+                                                                             />
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
                                                             <label for="inputEmail" class="col-md-2 control-label">Objetivo</label>
                                                             <div class="col-md-9">
-                                                                <input type="text" class="form-control" id="inputObjetivo"
-                                                                       placeholder="Objetivo" />
+                                                                <h:inputText  class="form-control" id="objetivoPropuesta"/>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
@@ -107,8 +106,8 @@
 
                                                         <div class="form-group">
                                                             <div class="col-md-9 col-md-offset-2">
-                                                                <button type="submit" class="btn btn-raised btn-success">Guardar</button>
-                                                                <button type="button" class="btn btn-raised btn-danger">Cancel</button>
+                                                                <button type="submit" class="btn btn-raised btn-success">Siguiente</button>
+                                                                <button type="button" class="btn btn-raised btn-danger">Cancelar</button>
                                                             </div>
                                                         </div>
                                                     </fieldset>
@@ -126,8 +125,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-md-9 col-md-offset-2">
-                                                    <button type="submit" class="btn btn-raised btn-success">Guardar</button>
-                                                    <button type="button" class="btn btn-raised btn-danger">Cancel</button>
+                                                    <button type="submit" class="btn btn-raised btn-success">Siguiente</button>
+                                                    <button type="button" class="btn btn-raised btn-danger">Cancelar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -146,8 +145,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-md-9 col-md-offset-2">
-                                                    <button type="submit" class="btn btn-raised btn-success">Guardar</button>
-                                                    <button type="button" class="btn btn-raised btn-danger">Cancel</button>
+                                                    <button type="submit" class="btn btn-raised btn-success">Siguiente</button>
+                                                    <button type="button" class="btn btn-raised btn-danger">Cancelar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -155,40 +154,40 @@
                                             <div class="form-group">
                                                 <label for="nombreAsesor" class="col-md-2 control-label">Nombre</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" id="nombreAsesor"
-                                                           placeholder="Nombre(s) del asesor" />
+                                                    <h:inputText  class="form-control" id="nombreAsesor"
+                                                                  />
                                                 </div>
                                                 <label for="apAsesor" class="col-md-2 control-label">Apellido Paterno</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" id="apAsesor"
-                                                           placeholder="Apellido Paterno del asesor" />
+                                                    <h:inputText  class="form-control" id="apAsesor"/>
+                                                                  
                                                 </div>
                                                 <label for="amAsesor" class="col-md-2 control-label">Apellido Materno</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" id="amAsesor"
-                                                           placeholder="Apellido Materno del asesor" />
+                                                    <h:inputText  class="form-control" id="amAsesor"/>
+                                                                  
                                                 </div>
                                                 <label for="cargoA" class="col-md-2 control-label">Cargo</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" id="cargoA"
-                                                           placeholder="Cargo del Asesor" />
+                                                    <h:inputText  class="form-control" id="cargoA"/>
+                                                                  
                                                 </div>
                                                 <label for="telAsesor" class="col-md-2 control-label">Telefono</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" id="telAsesor"
-                                                           placeholder="Telefono o celular a 10 posiciones" />
+                                                    <h:inputText  class="form-control" id="telAsesor"/>
+                                                                  
                                                 </div>
                                                 <label for="emailAsesor" class="col-md-2 control-label">Email</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" id="emailAsesor"
-                                                           placeholder="Email del asesor" />
+                                                    <h:inputText class="form-control" id="emailAsesor"/>
+                                                                 
                                                 </div>
 
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-md-9 col-md-offset-2">
-                                                    <button type="submit" class="btn btn-raised btn-success">Guardar</button>
-                                                    <button type="button" class="btn btn-raised btn-danger">Cancel</button>
+                                                    <button type="submit" class="btn btn-raised btn-success">Siguiente</button>
+                                                    <button type="button" class="btn btn-raised btn-danger">Cancelar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -196,36 +195,35 @@
                                             <div class="form-group">
                                                 <label for="nombreSolicitante" class="col-md-2 control-label">Nombre</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" id="nombreSolicitante"
-                                                           placeholder="Nombre(s) del solicitante" />
+                                                    <h:inputText  class="form-control" id="nombreSolicitante"/>
+                                                                 
                                                 </div>
                                                 <label for="apSolicitante" class="col-md-2 control-label">Apellido Paterno</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" id="apSolicitante"
-                                                           placeholder="Apellido paterno del solicitante" />
+                                                    <h:inputText  class="form-control" id="apSolicitante"/>
+                                                                  
                                                 </div>
                                                 <label for="amSolicitante" class="col-md-2 control-label">Apellido Materno</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" id="amSolicitante"
-                                                           placeholder="Apellido materno del solicitante" />
+                                                    <h:inputText  class="form-control" id="amSolicitante"/>
+                                                                  
                                                 </div>
 
                                                 <label for="telSolicitante" class="col-md-2 control-label">Telefono</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" id="telSolicitante"
-                                                           placeholder="Telefono o celular a 10 posiciones" />
+                                                    <h:inputText class="form-control" id="telSolicitante"/>
+                                                                 
                                                 </div>
                                                 <label for="emailSolicitante" class="col-md-2 control-label">Email</label>
                                                 <div class="col-md-9">
-                                                    <input type="text" class="form-control" id="emailSolicitante"
-                                                           placeholder="Email del Solicitante" />
+                                                    <h:inputText class="form-control" id="emailSolicitante"/>               
                                                 </div>
 
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-md-9 col-md-offset-2">
-                                                    <button type="submit" class="btn btn-raised btn-success">Guardar</button>
-                                                    <button type="button" class="btn btn-raised btn-danger">Cancel</button>
+                                                    <button type="submit" class="btn btn-raised btn-success">Siguiente</button>
+                                                    <button type="button" class="btn btn-raised btn-danger">Cancelar</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -233,7 +231,7 @@
                                             <div class="col-md-9 col-md-offset-2">
                                                 <h2><span  class="label label-primary">Actividad</span></h2>
                                             </div>
-                           
+
                                             <div id="actividad">
                                                 <div class="col-md-9 col-md-offset-2">
                                                     <p:inputTextarea cols="70" rows="3" id="nactividad"/>
@@ -243,16 +241,17 @@
                                             <div id="actividades" style="display:none">
                                                 <table id="tactividades" class="table table-no-border table-striped">
                                                     <thead>
-							<tr>
+                                                        <tr>
                                                             <th class="text-center">No</th>
                                                             <th class="text-center">Actividad</th>
-							</tr>
+                                                            <th></th>
+                                                        </tr>
                                                     </thead>
                                                     <tbody>
-										
+
                                                     </tbody>
-						</table>
-									
+                                                </table>
+
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-md-9 col-md-offset-2">

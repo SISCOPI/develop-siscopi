@@ -160,7 +160,7 @@ function mostrar(obj) {
         $('#actividades').show();
         var entrega = $('#nactividad').val();
         var numero = 1;
-        $('#tactividades').append('<tr><td class="text-center">' + numero + '</td><td>' + entrega + '</td></tr>');
+        $('#tactividades').append('<tr><td class="text-center">' + numero + '</td><td>' + entrega + '</td><td><a href="javascript:void(0)" class="btn btn-sm btn-raised btn-danger">Quitar</a></td></tr>');
         $('#nactividad').val("");
         $('#nactividad').focus();
     }
