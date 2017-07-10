@@ -9,6 +9,11 @@
 
 
     <ui:define name="content">
+        <h:outputStylesheet name="/css/jquery-ui.css"/>
+        <h:outputScript name="/js/jquery-3.2.0.js" />
+        <h:outputScript  name="/js/jquery-ui.js"/>
+        <h:outputScript name="/js/funcionesPropuestas.js"/>
+
         <!-- 		<div id="ms-preload" class="ms-preload"> -->
         <!-- 			<div id="status"> -->
         <!-- 				<div class="spinner"> -->
@@ -19,16 +24,15 @@
         <!-- 		</div> -->
 
 
-        <div class="container">
+        <div class="container" id="principal">
             <div class="row">
 
                 <div class="card card-primary animated fadeInUp animation-delay-7">
                     <div class="ms-hero-bg-primary ms-hero-img-mountain">
-                        <h2 class="text-center no-m pt-1 pb-1 color-white index-1">Nueva
-                            Propuesta</h2>
+                        <h2 class="text-center no-m pt-1 pb-1 color-white index-1">#{etipro['propuesta.nueva']}</h2>
                     </div>
                     <div class="text-right">
-                        <span class="label label-primary text-l-size-20">Fecha Solicitud</span>
+                        <span class="label label-primary text-l-size-20">#{msg['general.fechasolicitud']}</span>
 
                         <h:outputText styleClass="label label-success text-l-size-20" value="#{now}">
                             <f:convertDateTime pattern="MM/dd/yyyy" type="date" />
@@ -38,12 +42,12 @@
                         <div class="row">
                             <div class="col-md-3">
                                 <ul class="nav nav-tabs-ver" role="tablist">
-                                    <li role="presentation" class="active"><a href="#aspectos" aria-controls="aspectos" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i>Aspectos Generales</a></li>
-                                    <li role="presentation"><a href="#fechas" aria-controls="fechas" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i> Fechas</a></li>
-                                    <li role="presentation"><a href="#carreras" aria-controls="carreras" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i> Carreras/Ingenierias en las que impacta el proyecto</a></li>
-                                    <li role="presentation"><a href="#responsable" aria-controls="responsable" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i> Responsable(s) /asesor</a></li>
-                                    <li role="presentation"><a href="#solicitante" aria-controls="solicitante" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i> Datos del solicitante</a></li>
-                                    <li role="presentation"><a href="#detalle" aria-controls="detalle" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i> Detalle</a></li>
+                                    <li role="presentation" class="active"><a href="#aspectos" aria-controls="aspectos" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i>#{etipro['propuesta.seccion1']}</a></li>
+                                    <li role="presentation"><a href="#fechas" aria-controls="fechas" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i>#{etipro['propuesta.seccion2']}</a></li>
+                                    <li role="presentation"><a href="#carreras" aria-controls="carreras" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i>#{etipro['propuesta.seccion3']}</a></li>
+                                    <li role="presentation"><a href="#responsable" aria-controls="responsable" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i>#{etipro['propuesta.seccion4']}</a></li>
+                                    <li role="presentation"><a href="#solicitante" aria-controls="solicitante" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i>#{etipro['propuesta.seccion5']}</a></li>
+                                    <li role="presentation"><a href="#detalle" aria-controls="detalle" role="tab" data-toggle="tab"><i class="zmdi zmdi-settings"></i>#{etipro['propuesta.seccion6']}</a></li>
 
                                 </ul>
                             </div>
@@ -55,29 +59,29 @@
                                                 <h:form class="form-horizontal" id="formPropuesta">
                                                     <fieldset>
                                                         <div class="form-group">
-                                                            <label for="nombrePropuesta" class="col-md-2 control-label">Nombre del proyecto</label>
+                                                            <label for="nombrePropuesta" class="col-md-2 control-label">#{msg['general.nombreProyecto']}</label>
                                                             <div class="col-md-9">
                                                                 <h:inputText class="form-control" id="nombrePropuesta"
                                                                              />
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="inputEmail" class="col-md-2 control-label">Objetivo</label>
+                                                            <label for="inputEmail" class="col-md-2 control-label">#{msg['general.objetivo']}</label>
                                                             <div class="col-md-9">
                                                                 <h:inputText  class="form-control" id="objetivoPropuesta"/>
                                                             </div>
                                                         </div>
                                                         <div class="form-group">
-                                                            <label for="inputSubject" class="col-md-2 control-label">Entregables</label>
+                                                            <label for="inputSubject" class="col-md-2 control-label">#{msg['general.entregables']}</label>
                                                             <!--<h:graphicImage id="imgaddentre" class="imge" name="img/mas.png" onclick="mostrar(this)"/>-->
                                                             <div class="col-md-9">
 
 
 
 
-                                                                <div id="entregable">
-                                                                    <p:inputTextarea cols="50" rows="5" id="nentregable" widgetVar="entregableW"/>
-                                                                    <a onclick="return mostrar(this);" class="btn btn-sm btn-raised btn-info" id="imgaddentreindividual">Agregar Entregable</a>
+                                                                <div id="entregable" class="col-md-9 col-md-offset-2">
+                                                                    <p:inputTextarea cols="50" rows="5" id="nentregable"/>
+                                                                    <a onclick="return mostrar(this);" class="btn btn-sm btn-raised btn-info" id="imgaddentreindividual">#{msg['general.botones.leyendas.agregarEntregable']}</a>
                                                                     <!--<h:graphicImage id="imgaddentreindividual" class="imgaddentreindividual" name="img/masv.png" onclick="mostrar(this)"/>-->
                                                                 </div>
 
@@ -85,7 +89,7 @@
 
                                                                     <div class="card card-primary">
                                                                         <div class="card-header">
-                                                                            <h3 class="card-title"><i class="zmdi zmdi-graduation-cap"></i>Entregables</h3>
+                                                                            <h3 class="card-title"><i class="zmdi zmdi-graduation-cap"></i>#{msg['general.entregables']}</h3>
                                                                         </div>
                                                                         <table id="tentregables" class="table table-no-border table-striped">
                                                                             <thead>
@@ -106,8 +110,8 @@
 
                                                         <div class="form-group">
                                                             <div class="col-md-9 col-md-offset-2">
-                                                                <button type="submit" class="btn btn-raised btn-success">Siguiente</button>
-                                                                <button type="button" class="btn btn-raised btn-danger">Cancelar</button>
+                                                                <button type="submit" class="btn btn-raised btn-success">#{msg['general.botones.leyendas.siguiente']}</button>
+                                                                <button type="button" class="btn btn-raised btn-danger">#{msg['general.botones.leyendas.cancelar']}</button>
                                                             </div>
                                                         </div>
                                                     </fieldset>
@@ -115,106 +119,105 @@
                                             </div>
                                         </div>
                                         <div role="tabpanel" class="tab-pane" id="fechas">
-                                            <div class="form-group">
+                                            <div class="col-md-9">
                                                 <p:outputLabel for="ca1" value="Inicio:" />
                                                 <p:calendar id="ca1" value="#{calendarView.date2}" />
-                                            </div>
-                                            <div class="form-group">
+
                                                 <p:outputLabel for="ca2" value="Fin:" />
                                                 <p:calendar id="ca2" value="#{calendarView.date2}" />
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-md-9 col-md-offset-2">
-                                                    <button type="submit" class="btn btn-raised btn-success">Siguiente</button>
-                                                    <button type="button" class="btn btn-raised btn-danger">Cancelar</button>
+                                                    <button type="submit" class="btn btn-raised btn-success">#{msg['general.botones.leyendas.siguiente']}</button>
+                                                    <button type="button" class="btn btn-raised btn-danger">#{msg['general.botones.leyendas.cancelar']}</button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div role="tabpanel" class="tab-pane" id="carreras">
                                             <div class="form-group">
-                                                <h3>1</h3>
-                                                <h:inputText  class="form-control text-l-size-16"/>
+                                                <label for="carrera1" class="col-md-2 control-label">1</label>
+                                                <h:inputText  class="form-control text-l-size-16" id="carrera1"/>
                                             </div>
                                             <div class="form-group">
-                                                <h3>2</h3>
-                                                <h:inputText  class="form-control text-l-size-16"/>
+                                                <label for="carrera2" class="col-md-2 control-label">2</label>
+                                                <h:inputText  class="form-control text-l-size-16" id="carrera2"/>
                                             </div>
                                             <div class="form-group">
-                                                <h3>3</h3>
-                                                <h:inputText  class="form-control text-l-size-16"/>
+                                                <label for="carrera3" class="col-md-2 control-label">3</label>
+                                                <h:inputText  class="form-control text-l-size-16" id="carrera3"/>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-md-9 col-md-offset-2">
-                                                    <button type="submit" class="btn btn-raised btn-success">Siguiente</button>
-                                                    <button type="button" class="btn btn-raised btn-danger">Cancelar</button>
+                                                    <button type="submit" class="btn btn-raised btn-success">#{msg['general.botones.leyendas.siguiente']}</button>
+                                                    <button type="button" class="btn btn-raised btn-danger">#{msg['general.botones.leyendas.cancelar']}</button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div role="tabpanel" class="tab-pane" id="responsable">
                                             <div class="form-group">
-                                                <label for="nombreAsesor" class="col-md-2 control-label">Nombre</label>
+                                                <label for="nombreAsesor" class="col-md-2 control-label">#{msg['general.personas.nombre']}</label>
                                                 <div class="col-md-9">
                                                     <h:inputText  class="form-control" id="nombreAsesor"
                                                                   />
                                                 </div>
-                                                <label for="apAsesor" class="col-md-2 control-label">Apellido Paterno</label>
+                                                <label for="apAsesor" class="col-md-2 control-label">#{msg['general.personas.ap']}</label>
                                                 <div class="col-md-9">
                                                     <h:inputText  class="form-control" id="apAsesor"/>
-                                                                  
+
                                                 </div>
-                                                <label for="amAsesor" class="col-md-2 control-label">Apellido Materno</label>
+                                                <label for="amAsesor" class="col-md-2 control-label">#{msg['general.personas.am']}</label>
                                                 <div class="col-md-9">
                                                     <h:inputText  class="form-control" id="amAsesor"/>
-                                                                  
+
                                                 </div>
-                                                <label for="cargoA" class="col-md-2 control-label">Cargo</label>
+                                                <label for="cargoA" class="col-md-2 control-label">#{msg['general.personas.cargo']}</label>
                                                 <div class="col-md-9">
                                                     <h:inputText  class="form-control" id="cargoA"/>
-                                                                  
+
                                                 </div>
-                                                <label for="telAsesor" class="col-md-2 control-label">Telefono</label>
+                                                <label for="telAsesor" class="col-md-2 control-label">#{msg['general.personas.tel']}</label>
                                                 <div class="col-md-9">
                                                     <h:inputText  class="form-control" id="telAsesor"/>
-                                                                  
+
                                                 </div>
-                                                <label for="emailAsesor" class="col-md-2 control-label">Email</label>
+                                                <label for="emailAsesor" class="col-md-2 control-label">#{msg['general.personas.email']}</label>
                                                 <div class="col-md-9">
                                                     <h:inputText class="form-control" id="emailAsesor"/>
-                                                                 
+
                                                 </div>
 
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-md-9 col-md-offset-2">
-                                                    <button type="submit" class="btn btn-raised btn-success">Siguiente</button>
-                                                    <button type="button" class="btn btn-raised btn-danger">Cancelar</button>
+                                                    <button type="submit" class="btn btn-raised btn-success">#{msg['general.botones.leyendas.siguiente']}</button>
+                                                    <button type="button" class="btn btn-raised btn-danger">#{msg['general.botones.leyendas.cancelar']}</button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div role="tabpanel" class="tab-pane" id="solicitante">
                                             <div class="form-group">
-                                                <label for="nombreSolicitante" class="col-md-2 control-label">Nombre</label>
+                                                <label for="nombreSolicitante" class="col-md-2 control-label">#{msg['general.personas.nombre']}</label>
                                                 <div class="col-md-9">
                                                     <h:inputText  class="form-control" id="nombreSolicitante"/>
-                                                                 
+
                                                 </div>
-                                                <label for="apSolicitante" class="col-md-2 control-label">Apellido Paterno</label>
+                                                <label for="apSolicitante" class="col-md-2 control-label">#{msg['general.personas.ap']}</label>
                                                 <div class="col-md-9">
                                                     <h:inputText  class="form-control" id="apSolicitante"/>
-                                                                  
+
                                                 </div>
-                                                <label for="amSolicitante" class="col-md-2 control-label">Apellido Materno</label>
+                                                <label for="amSolicitante" class="col-md-2 control-label">#{msg['general.personas.am']}</label>
                                                 <div class="col-md-9">
                                                     <h:inputText  class="form-control" id="amSolicitante"/>
-                                                                  
+
                                                 </div>
 
-                                                <label for="telSolicitante" class="col-md-2 control-label">Telefono</label>
+                                                <label for="telSolicitante" class="col-md-2 control-label">#{msg['general.personas.tel']}</label>
                                                 <div class="col-md-9">
                                                     <h:inputText class="form-control" id="telSolicitante"/>
-                                                                 
+
                                                 </div>
-                                                <label for="emailSolicitante" class="col-md-2 control-label">Email</label>
+                                                <label for="emailSolicitante" class="col-md-2 control-label">#{msg['general.personas.email']}</label>
                                                 <div class="col-md-9">
                                                     <h:inputText class="form-control" id="emailSolicitante"/>               
                                                 </div>
@@ -222,20 +225,20 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-md-9 col-md-offset-2">
-                                                    <button type="submit" class="btn btn-raised btn-success">Siguiente</button>
-                                                    <button type="button" class="btn btn-raised btn-danger">Cancelar</button>
+                                                    <button type="submit" class="btn btn-raised btn-success">#{msg['general.botones.leyendas.siguiente']}</button>
+                                                    <button type="button" class="btn btn-raised btn-danger">#{msg['general.botones.leyendas.cancelar']}</button>
                                                 </div>
                                             </div>
                                         </div>
                                         <div role="tabpanel" class="tab-pane" id="detalle">
                                             <div class="col-md-9 col-md-offset-2">
-                                                <h2><span  class="label label-primary">Actividad</span></h2>
+                                                <h3><span  class="label label-primary">Actividad</span></h3>
                                             </div>
 
                                             <div id="actividad">
                                                 <div class="col-md-9 col-md-offset-2">
                                                     <p:inputTextarea cols="70" rows="3" id="nactividad"/>
-                                                    <a onclick="return mostrar(this);" class="btn btnbtn-raised btn-info" id="imgaddactiindividual">Agregar Actividad</a>
+                                                    <a onclick="return mostrar(this);" class="btn btn-raised btn-info" id="imgaddactiindividual">Agregar Actividad</a>
                                                 </div>
                                             </div>
                                             <div id="actividades" style="display:none">
@@ -255,8 +258,8 @@
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-md-9 col-md-offset-2">
-                                                    <button type="submit" class="btn btn-raised btn-success">Guardar</button>
-                                                    <button type="button" class="btn btn-raised btn-danger">Cancel</button>
+                                                    <button type="submit" class="btn btn-raised btn-success" onclick="presentaResumen()">#{msg['general.botones.leyendas.aceptar']}</button>
+                                                    <button type="button" class="btn btn-raised btn-danger">#{msg['general.botones.leyendas.cancelar']}</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -273,7 +276,252 @@
             </div>
         </div>
         <!-- container -->
+        <div id="resumen" style="display:none">
 
+
+            <div class="row">
+
+                <div class="container">
+                    <div class="ms-hero-bg-primary ms-hero-img-mountain">
+                        <h2 class="text-center no-m pt-1 pb-1 color-white index-1">#{etipro['propuesta.resumen']}</h2>
+                    </div>
+                    <div class="panel-group ms-collapse no-margin" id="accordion11" role="tablist" aria-multiselectable="true">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingOne11">
+                                <h4 class="panel-title">
+                                    <a class="collapsed withripple" role="button" data-toggle="collapse" data-parent="#accordion11" href="#collapseOne11" aria-expanded="false" aria-controls="collapseOne11">
+                                        <i class="zmdi zmdi-pin"></i>#{etipro['propuesta.seccion1']}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseOne11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne11">
+                                <div class="panel-body">
+                                    <div class="card card-primary animated fadeInUp">
+
+                                        <table class="table table-no-border table-striped">
+                                            <tr>
+                                                <th><i class="zmdi zmdi-account mr-1 color-success"></i>#{msg['general.nombreProyecto']}</th>
+                                                <td>vic_smith</td>
+                                            </tr>
+                                            <tr>
+                                                <th><i class="zmdi zmdi-face mr-1 color-warning"></i>#{msg['general.objetivo']}</th>
+                                                <td>Victoria Smith</td>
+                                            </tr>
+                                            <tr>
+                                                <th><i class="zmdi zmdi-email mr-1 color-danger"></i>#{msg['general.entregables']}</th>
+                                                <td>
+
+                                                </td>
+                                            </tr>
+
+                                        </table>
+                                        <div class="card card-primary animated fadeInUp animation-delay-12">
+
+                                            <table class="table table-no-border table-striped">
+                                                <tr>
+                                                    <th><i class="zmdi zmdi-account mr-1 color-success"></i>1</th>
+                                                    <td>vic_smith</td>
+                                                </tr>
+                                                <tr>
+                                                    <th><i class="zmdi zmdi-face mr-1 color-warning"></i>2</th>
+                                                    <td>Victoria Smith</td>
+                                                </tr>
+                                                <tr>
+                                                    <th><i class="zmdi zmdi-email mr-1 color-danger"></i>3</th>
+                                                    <td><a href="#">mail@example.com</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <th><i class="zmdi zmdi-link mr-1 color-info"></i>4</th>
+                                                    <td><a href="#">www.example.com</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <th><i class="zmdi zmdi-calendar mr-1 color-royal"></i>5</th>
+                                                    <td>12/11/2015</td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingTwo11">
+                                <h4 class="panel-title">
+                                    <a class="collapsed withripple" role="button" data-toggle="collapse" data-parent="#accordion11" href="#collapseTwo11" aria-expanded="false" aria-controls="collapseTwo11">
+                                        <i class="zmdi zmdi-pin"></i>#{etipro['propuesta.seccion2']}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseTwo11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo11">
+                                <div class="panel-body">
+                                    <table class="table table-no-border table-striped">
+                                        <tr>
+                                            <th><i class="zmdi zmdi-calendar mr-1 color-success"></i>Inicio</th>
+                                            <td>12/11/2015</td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="zmdi zmdi-calendar mr-1 color-warning"></i>Fin</th>
+                                            <td>12/11/2015</td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree3">
+                                <h4 class="panel-title">
+                                    <a class="collapsed withripple" role="button" data-toggle="collapse" data-parent="#accordion11" href="#collapseThree11" aria-expanded="false" aria-controls="collapseThree11">
+                                        <i class="zmdi zmdi-pin"></i>#{etipro['propuesta.seccion3']}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseThree11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree11">
+                                <div class="panel-body">
+                                    <ul class="list-group">
+                                        <li class="list-group-item">Cras justo odio</li>
+                                        <li class="list-group-item">Dapibus ac facilisis in</li>
+                                        <li class="list-group-item">Morbi leo risus</li>
+                                        <li class="list-group-item">Porta ac consectetur ac</li>
+                                        <li class="list-group-item">tibulum at eros</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree3">
+                                <h4 class="panel-title">
+                                    <a class="collapsed withripple" role="button" data-toggle="collapse" data-parent="#accordion11" href="#collapseFour11" aria-expanded="false" aria-controls="collapseFour11">
+                                        <i class="zmdi zmdi-pin"></i>#{etipro['propuesta.seccion4']}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFour11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree11">
+                                <div class="panel-body">
+                                    <table class="table table-no-border table-striped">
+                                        <tr>
+                                            <th><i class="zmdi zmdi-account mr-1 color-success"></i>#{msg['general.personas.nombrec']}</th>
+                                            <td>victor smith prueba</td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="zmdi zmdi-face mr-1 color-warning"></i>#{msg['general.personas.cargo']}</th>
+                                            <td>Victoria Smith</td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="zmdi zmdi-email mr-1 color-danger"></i>#{msg['general.personas.tel']}</th>
+                                            <td><a href="#">6666666666</a></td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="zmdi zmdi-link mr-1 color-info"></i>#{msg['general.personas.email']}</th>
+                                            <td><a href="#">www.example.com</a></td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingFive3">
+                                <h4 class="panel-title">
+                                    <a class="collapsed withripple" role="button" data-toggle="collapse" data-parent="#accordion11" href="#collapseFive11" aria-expanded="false" aria-controls="headingFive3">
+                                        <i class="zmdi zmdi-pin"></i>#{etipro['propuesta.seccion5']}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseFive11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree11">
+                                <div class="panel-body">
+                                    <table class="table table-no-border table-striped">
+                                        <tr>
+                                            <th><i class="zmdi zmdi-account mr-1 color-success"></i>#{msg['general.personas.nombrec']}</th>
+                                            <td>victor smith prueba</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th><i class="zmdi zmdi-email mr-1 color-danger"></i>#{msg['general.personas.tel']}</th>
+                                            <td><a href="#">6666666666</a></td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="zmdi zmdi-link mr-1 color-info"></i>#{msg['general.personas.email']}</th>
+                                            <td><a href="#">www.example.com</a></td>
+                                        </tr>
+
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel panel-default">
+                            <div class="panel-heading" role="tab" id="headingThree3">
+                                <h4 class="panel-title">
+                                    <a class="collapsed withripple" role="button" data-toggle="collapse" data-parent="#accordion11" href="#collapseSix11" aria-expanded="false" aria-controls="collapseSix11">
+                                        <i class="zmdi zmdi-pin"></i>#{etipro['propuesta.seccion6']}
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapseSix11" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree11">
+                                <div class="panel-body">
+
+
+                                    <table class="table table-no-border table-striped">
+
+                                        <tr>
+                                            <th><i class="zmdi zmdi-account mr-1 color-success"></i>1</th>
+                                            <td>vic_smith</td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="zmdi zmdi-face mr-1 color-warning"></i>2</th>
+                                            <td>Victoria Smith</td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="zmdi zmdi-email mr-1 color-danger"></i>3</th>
+                                            <td><a href="#">mail@example.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="zmdi zmdi-link mr-1 color-info"></i>4</th>
+                                            <td><a href="#">www.example.com</a></td>
+                                        </tr>
+                                        <tr>
+                                            <th><i class="zmdi zmdi-calendar mr-1 color-royal"></i>5</th>
+                                            <td>12/11/2015</td>
+                                        </tr>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="text-right">
+                            <button type="button" class="btn btn-raised btn-primary" onclick="ocultaResumen()">#{msg['general.botones.leyendas.regresar']}</button>
+                            <button type="button" class="btn btn-raised btn-danger">#{msg['general.botones.leyendas.cancelar']}</button>
+                            <button type="button" class="btn btn-raised  btn-success" data-toggle="modal" data-target="#confirmaAltaPropuesta">#{msg['general.botones.leyendas.confirmar']}</button>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="confirmaAltaPropuesta" title="Confirma" class="modal modal-warning"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel6">
+
+            <div class="modal-dialog animated zoomIn animated-3x" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="zmdi zmdi-close"></i></span></button>
+                        <h3 class="modal-title" id="myModalLabel6">Modal title</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>#{etipro['propuesta.confirmaAlta']}</p>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">#{msg['general.botones.leyendas.cancelar']}</button>
+                        <button type="button" class="btn btn-warning">#{msg['general.botones.leyendas.aceptar']}</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
 
 
 

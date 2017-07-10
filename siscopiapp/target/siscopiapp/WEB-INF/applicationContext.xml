@@ -14,7 +14,8 @@
 		beans -->
 	<context:component-scan base-package="com.siscopi" />
 
-	<context:property-placeholder location="classpath:versiones.properties" />
+	<context:property-placeholder location="classpath:generales.properties" />
+        <context:property-placeholder location="classpath:etiquetasPropuestas.properties" />
 
 	<!-- Configures the @Controller programming model -->
 
