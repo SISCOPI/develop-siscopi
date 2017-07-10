@@ -105,3 +105,9 @@ function ocultaResumen() {
     $("#resumen").hide();
     $("#principal").show();
 }
+function cancelar() {
+    event.preventDefault();
+   // $("#confirmaAltaPropuesta").dialog("open");
+    $("#resumen").hide();
+    $("#principal").show();
+}
