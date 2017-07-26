@@ -10,11 +10,24 @@ function salir(opcion) {
         window.location = "indexProfesor.html";
     }
 }
-
+var f = new Date();
 function fechaActual() {
-    var f = new Date();
+    
     var fh = f.getDate() + "/" + (f.getMonth() + 1) + "/" + f.getFullYear();
     return fh;
+}
+function semestreActual(){
+    var mes=f.getMonth() + 1;
+    var anio=f.getFullYear();
+    var semestre="";
+    if(mes>=1 && mes<=7){
+        semestre="Enero -Junio "+anio;
+    }
+    else{
+        semestre="Agosto - Diciembre "+anio;
+    }
+//    alert(semestre);
+    return semestre;
 }
 
 //function ponerFechaActual(){
