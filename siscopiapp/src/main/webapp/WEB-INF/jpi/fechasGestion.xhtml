@@ -1,0 +1,177 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <script type="text/javascript">
+
+
+        PrimeFaces.locales['es'] = {
+                closeText: 'Cerrar',
+                prevText: 'Anterior',
+                nextText: 'Siguiente',
+                monthNames: ['Enero','Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+                dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+                dayNamesShort: ['Dom','Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+                dayNamesMin: ['D','L','M','M','J','V','S'],
+                weekHeader: 'Semana',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: '',
+                timeOnlyTitle: 'Solo hora',
+                timeText: 'Tiempo',
+                hourText: 'Hora',
+                minuteText: 'Minuto',
+                secondText: 'Segundo',
+                currentText: 'Fecha actual',
+                ampm: false,
+                month: 'Mes',
+                week: 'Semana',
+                day: 'Dia',
+                allDayText : 'Todo el dia'
+        };
+        
+        </script>
+    </h:head>
+    <h:body>
+        <h:form id="formFechas">
+
+            <fieldset class="block-bordered paddingfield">
+                <legend class="LegendCenter"><h3 class="primary-color-dark margin-bottom-0 text-size-20 text-thin text-line-height-1 text-left"><span class="badge badge-primary">1</span><b>Semestre</b></h3></legend>
+                <div class="line center">
+                    <div>
+                        
+                            <label> Fecha Inicio:</label><label> Sin establecer:</label>
+                            <p:calendar id="isemestre" value="#{fechas.isemestre}" showOn="button"
+                                pattern ="yyyy-MM-dd" locale="es"
+                                
+                                label="#{ui['calendar.start']}">
+                                <p:ajax event="dateSelect" listener="#{calendarView.onDateSelect}" update="prueba fsemestre" />
+                            </p:calendar>
+                            <h:outputText id="prueba" value="#{fechas.isemestreD}"/>
+                      
+                        
+                            <label> Fecha Fin:</label><label> Sin establecer:</label>
+                            <p:calendar id="fsemestre" value="#{fechas.fsemestre}" showOn="button"
+                                mindate="#{fechas.isemestre}"  pattern="yyyy-MM-dd"
+                                locale="es" required="true" label="#{ui['calendar.end']}"
+                                >
+<!--                                <f:attribute name="startDate" value="#{fechas.isemestre}" />
+                                <f:validator validatorId="primeDateRangeValidator" />-->
+                            </p:calendar>
+                        
+
+                        
+                            <button class="submit-form button background-primary border-radius-fe text-white" type="submit">Alta</button>
+                        
+                    </div>
+                </div>
+            </fieldset>
+            <h3 class="primary-color-dark margin-bottom-0 text-size-25 text-thin text-line-height-1 text-center"><b>Evaluaciones</b></h3>
+            <fieldset class="block-bordered paddingfield">
+                <legend style="color:blue;font-weight:bold;">
+                    <h3 class="primary-color-dark margin-bottom-0 text-size-15 text-thin text-line-height-1 text-left"><b>Primera</b></h3>
+                </legend>
+                <div class="line">
+                    <div class="margin">
+                        <div class="s-5 m-8 l-4">
+                            <label> Fecha Inicio:</label><label> Sin establecer:</label>
+                            <input name="ieva1" id="ieva1" class="required email border-radius text-l-size-16" placeholder="" title="" type="text" />
+
+                        </div>
+                        <div class="s-5 m-8 l-4"> 
+                            <label> Fecha Fin:</label><label> Sin establecer:</label>
+                            <input name="feva1" id="feva1" class="required email border-radius text-l-size-16" placeholder="" title="" type="text" />
+                        </div>
+
+                        <div class="l-4" >
+                            <button class="submit-form button background-primary border-radius-fe text-white" type="submit">Alta</button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="block-bordered paddingfield">
+                <legend style="color:blue;font-weight:bold;">
+                    <h3 class="primary-color-dark margin-bottom-0 text-size-15 text-thin text-line-height-1 text-left"><b>Segunda</b></h3>
+                </legend>
+                <div class="line">
+                    <div class="margin">
+                        <div class="s-5 m-8 l-4">
+                            <label> Fecha Inicio:</label><label> Sin establecer:</label>
+                            <input name="ieva2" id="ieva2" class="required email border-radius text-l-size-16" placeholder="" title="" type="text" />
+
+                        </div>
+                        <div class="s-5 m-8 l-4"> 
+                            <label> Fecha Fin:</label><label> Sin establecer:</label>
+                            <input name="feva2" id="feva2" class="required email border-radius text-l-size-16" placeholder="" title="" type="text" />
+                        </div>
+
+                        <div class="l-4" >
+                            <button class="submit-form button background-primary border-radius-fe text-white" type="submit">Alta</button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="block-bordered paddingfield">
+                <legend style="color:blue;font-weight:bold;">
+                    <h3 class="primary-color-dark margin-bottom-0 text-size-15 text-thin text-line-height-1 text-left"><b>Tercera</b></h3>
+                </legend>
+                <div class="line">
+                    <div class="margin">
+                        <div class="s-5 m-8 l-4">
+                            <label> Fecha Inicio:</label><label> Sin establecer:</label>
+                            <input name="ieva3" id="ieva3" class="required email border-radius text-l-size-16" placeholder="" title="" type="text" />
+
+                        </div>
+                        <div class="s-5 m-8 l-4"> 
+                            <label> Fecha Fin:</label><label> Sin establecer:</label>
+                            <input name="feva3" id="feva3" class="required email border-radius text-l-size-16" placeholder="" title="" type="text" />
+                        </div>
+
+                        <div class="l-4" >
+                            <button class="submit-form button background-primary border-radius-fe text-white" type="submit">Alta</button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <fieldset class="block-bordered paddingfield">
+                <legend style="color:blue;font-weight:bold;">
+                    <h3 class="primary-color-dark margin-bottom-0 text-size-15 text-thin text-line-height-1 text-left"><b>Final</b></h3>
+                </legend>
+                <div class="line">
+                    <div class="margin">
+                        <div class="s-5 m-8 l-4">
+                            <label> Fecha Inicio:</label><label> Sin establecer:</label>
+                            <input name="ievaf" id="ievaf" class="required email border-radius text-l-size-16" placeholder="" title="" type="text" />
+
+                        </div>
+                        <div class="s-5 m-8 l-4"> 
+                            <label> Fecha Fin:</label><label> Sin establecer:</label>
+                            <input name="fevaf" id="fevaf" class="required email border-radius text-l-size-16" placeholder="" title="" type="text" />
+                        </div>
+
+                        <div class="l-4" >
+                            <button class="submit-form button background-primary border-radius-fe text-white" type="submit">Alta</button>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            <div class="s-12 text-center">
+                <button class="border-radius text-white cancel-btn" type="button" onclick="salir()">Salir</button>						
+            </div> 
+        </h:form>
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <h:outputScript name="js/jquery-3.2.0.js"></h:outputScript>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery-ui.js" />
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/funcionesJPIUsers.js" />
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/ui-datepicker-es-MX.js" />
+        <script type="text/javascript">
+            
+        </script>
+    </h:body>
+</html>
+

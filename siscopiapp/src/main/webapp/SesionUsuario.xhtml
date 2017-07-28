@@ -20,7 +20,7 @@
                                     <a href=""  class="dropdown-toggle animated fadeIn animation-delay-5" data-toggle="dropdown" data-hover="dropdown"><strong><i class="zmdi zmdi-check"></i>Etapa 1: Registro&nbsp;</strong>del 10/01 al 25/01 2018</a>
                                     <ul class="dropdown-menu dropdown-menu-left animated-2x animated fadeIn">
                                         <li class="dropdown-submenu">
-                                            <a href="#home" aria-controls="home" role="tab" data-toggle="tab"><strong><i class="zmdi zmdi-check"></i>Establecer Fechas</strong></a>
+                                            <a href="#fechas" aria-controls="fechas" role="tab" data-toggle="tab"><strong><i class="zmdi zmdi-check"></i>Establecer Fechas</strong></a>
                                         </li>
                                         <li class="dropdown-submenu">
                                             <a href="#home" aria-controls="home" role="tab" data-toggle="tab"><strong><i class="zmdi zmdi-check"></i>Actividad 2</strong></a>
@@ -40,7 +40,10 @@
                         <div class="col-md-9 nav-tabs-ver-container-content">
                             <div class="card-block">
                                 <div class="tab-content">
-                                    <div role="tabpanel" class="tab-pane active" id="home">
+                                    <div role="tabpanel" class="tab-pane" id="fechas">
+                                        <ui:include src="/WEB-INF/jpi/fechasGestion.xhtml" />
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="home">
                                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam soluta, provident similique necessitatibus nihil officiis nam eius dolore ab ad eveniet aliquam est, repellendus reiciendis, perspiciatis aliquid. Voluptatum quasi corporis quisquam autem distinctio, numquam sint. Debitis cumque fugit nulla soluta laudantium sapiente atque a beatae excepturi. Sapiente error temporibus necessitatibus.</p>
                                         <p>Facere excepturi qui reiciendis corporis, beatae modi ab distinctio amet adipisci, voluptate error optio. Cupiditate quidem exercitationem sed laudantium. Quasi minima unde soluta optio saepe ipsam! Earum at animi dignissimos accusantium suscipit, placeat voluptates facilis deserunt soluta quam accusamus, iure consectetur quos deleniti porro doloremque aspernatur mollitia.</p>
                                     </div>
@@ -87,7 +90,7 @@
                             <td>
                                 <div class="alert alert-warning alert-light alert-dismissible" role="alert">
                                     
-                                    <strong><i class="zmdi zmdi-alert-triangle"></i>Alertas!</strong><p>Algunas o todas las Actividades</p><p> no han sido completadas de</p><p> acuerdo a las fechas</p>
+                                    <strong><i class="zmdi zmdi-alert-triangle"></i>Advertencia</strong><p>Algunas o todas las Actividades</p><p> no han sido completadas de</p><p> acuerdo a las fechas</p>
                                 </div>
                             </td>
                 
