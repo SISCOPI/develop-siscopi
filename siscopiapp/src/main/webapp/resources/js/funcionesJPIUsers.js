@@ -7,8 +7,8 @@ $(function () {
 	$("#fechahoy").text(fechaActual());
 	var selectedRow;
 	$.datepicker.setDefaults($.datepicker.regional['es-MX']);
-	$("#isemestre").datepicker();
-	$("#fsemestre").datepicker();
+//	$("#isemestre").datepicker();
+//	$("#fsemestre").datepicker();
 	$("#ieva1").datepicker();
 	$("#ieva2").datepicker();
 	$("#ieva3").datepicker();

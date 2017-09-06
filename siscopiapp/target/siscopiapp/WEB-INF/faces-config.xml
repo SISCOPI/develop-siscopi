@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <faces-config xmlns="http://java.sun.com/xml/ns/javaee"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 	http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
-	version="2.1">
+              version="2.1">
 
-	<application>
-		<el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
-		<resource-bundle>
-			<base-name>versiones</base-name>
-			<var>msg</var>
-		</resource-bundle>
-	</application>
-<navigation-rule>
+    <application>
+        <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
+        <resource-bundle>
+            <base-name>generales</base-name>
+            <var>msg</var>
+        </resource-bundle>
+        <resource-bundle>
+            <base-name>etiquetasPropuestas</base-name>
+            <var>etipro</var>
+        </resource-bundle>
+    </application>
+    <navigation-rule>
         <from-view-id>*</from-view-id>
         <navigation-case>
             <from-outcome>inicio</from-outcome>
@@ -37,5 +41,9 @@
         </navigation-case>
 
     </navigation-rule>
-
+    <managed-bean>
+        <managed-bean-name>now</managed-bean-name>
+        <managed-bean-class>java.util.Date</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean> 
 </faces-config>
