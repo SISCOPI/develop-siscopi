@@ -5,8 +5,9 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core">
 
-<h:form>
+
 <!-- Modal -->
+<h:form>
       <div class="modal modal-primary" id="ms-account-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog animated zoomIn animated-3x" role="document">
           <div class="modal-content">
@@ -42,51 +43,58 @@
             <div class="modal-body">
               <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade active in" id="ms-login-tab">
-                  <h:form autocomplete="off">
+                
                     <fieldset>
                       <div class="form-group label-floating">
                         <div class="input-group">
-                          <span class="input-group-addon">
-                            <i class="zmdi zmdi-account"></i>
-                          </span>
-                          <label class="control-label" for="ms-form-user">Nombre usuario</label>
-                          <input type="text" id="ms-form-user" class="form-control"/> </div>
+                            <span class="input-group-addon">
+                              <i class="zmdi zmdi-account"></i>
+                            </span>
+                            <h:outputLabel styleClass="control-label" for="ms-login-user">Nombre usuario</h:outputLabel>
+                            <h:inputText id="ms-login-user" styleClass="form-control" value="#{loginCtrl.usuario}"/> 
+                        </div>
+                          <h:message for="ms-login-user"  style="color:red"/>
                       </div>
                       <div class="form-group label-floating">
                         <div class="input-group">
                           <span class="input-group-addon">
                             <i class="zmdi zmdi-lock"></i>
                           </span>
-                          <label class="control-label" for="ms-form-pass">Password</label>
-                          <input type="password" id="ms-form-pass" class="form-control"/> </div>
+                          <h:outputLabel class="control-label" for="ms-form-pass">Password</h:outputLabel>
+                          <h:inputSecret id="ms-form-pass" styleClass="form-control" value="#{loginCtrl.password}"/> 
+                        </div>
                       </div>
                       <div class="row mt-2">
                         <div class="col-md-6">
                           <div class="form-group no-mt">
                             <div class="checkbox">
-                              <label>
-                                <input type="checkbox"/> Recordarme </label>
+                              
+                                <h:selectBooleanCheckbox    id="_spring_security_remember_me"/>
+                                <h:outputLabel for="_spring_security_remember_me" value="Recordame" />
                             </div>
                           </div>
                         </div>
                         <div class="col-md-6">
-                          <button class="btn btn-raised btn-primary pull-right">Login</button>
+                          <h:commandButton class="btn btn-raised btn-primary pull-right"  id="login" value="Login" 
+        action="#{loginCtrl.loginCtrl}"/>
                         </div>
                       </div>
                     </fieldset>
-                  </h:form>
+              
                   
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="ms-register-tab">
-                  <h:form>
+                 
+                    <h:messages globalOnly="true"/>
                     <fieldset>
                       <div class="form-group label-floating">
                         <div class="input-group">
                           <span class="input-group-addon">
                             <i class="zmdi zmdi-account"></i>
                           </span>
-                          <label class="control-label" for="ms-form-user">Nombre usuario</label>
-                          <input type="text" id="ms-form-user" class="form-control"/> </div>
+                            <h:outputLabel styleClass="control-label" for="ms-form-user">Nombre usuario </h:outputLabel>
+                            <h:inputText id="ms-form-user" styleClass="form-control"/> </div>
+                            <h:message for="ms-form-user"  style="color:red"/>
                       </div>
                       <div class="form-group label-floating">
                         <div class="input-group">
@@ -114,10 +122,10 @@
                       </div>
                       <button class="btn btn-raised btn-block btn-primary">Registrarse</button>
                     </fieldset>
-                  </h:form>
+                  
                 </div>
                 <div role="tabpanel" class="tab-pane fade" id="ms-recovery-tab">
-                <h:form>
+              
                   <fieldset>
                     <div class="form-group label-floating">
                       <div class="input-group">
@@ -137,7 +145,7 @@
                     </div>
                     <button class="btn btn-raised btn-block btn-primary">Enviar Password</button>
                   </fieldset>
-                  </h:form>
+                 
                 </div>
               </div>
             </div>
@@ -147,7 +155,7 @@
 	<nav class="navbar navbar-static-top yamm ms-navbar ms-navbar-dark">
 		<div class="container container-full">
 			<div class="navbar-header">
-				<h:commandLink class="navbar-brand" action="index.xhtml"> <!-- <img src="assets/img/demo/logo-navbar.png" alt=""> -->
+				<h:commandLink styleClass="navbar-brand" action="index.xhtml"> <!-- <img src="assets/img/demo/logo-navbar.png" alt=""> -->
 					<span class="ms-logo ms-logo-sm">M</span> <span class="ms-title">Material
 						<strong>Style</strong>
 				</span>
@@ -158,8 +166,8 @@
 				<ul class="nav navbar-nav">
 					<li class="dropdown active">
 						<h:commandLink action="inicio"
-							class="dropdown-toggle animated fadeIn animation-delay-4"
-							data-toggle="dropdown" data-hover="dropdown" data-name="home">Inicio
+							styleClass="dropdown-toggle animated fadeIn animation-delay-4"
+							>Inicio
 <!-- 							<f:setPropertyActionListener target="#{menu.itemBean}" value="index" /> -->
 							<f:param id="itemBean" name="item" value="index"/>
 							
@@ -190,16 +198,16 @@
 						</li>
 						<li class="dropdown">
 							<h:commandLink action="contac"
-								class="dropdown-toggle animated fadeIn animation-delay-4"
-								data-toggle="dropdown" data-hover="dropdown">Contacto
+								styleClass="dropdown-toggle animated fadeIn animation-delay-4"
+								>Contacto
 	<!-- 							<i class="zmdi zmdi-chevron-down"></i> -->
 	<!-- 							<f:ajax render=":contenido"/> -->
 							</h:commandLink>
 						</li>
 						<li class="dropdown">
 						<h:commandLink action="acerca"
-							class="dropdown-toggle animated fadeIn animation-delay-4"
-							data-toggle="dropdown" data-hover="dropdown">Acerca De
+							styleClass="dropdown-toggle animated fadeIn animation-delay-4"
+							>Acerca De
 <!-- 							<i class="zmdi zmdi-chevron-down"></i> -->
 <!-- 							<f:ajax render=":contenido"/> -->
 						</h:commandLink>
@@ -218,4 +226,5 @@
 		<!-- container -->
 	</nav>
 </h:form>
+
 </ui:composition>

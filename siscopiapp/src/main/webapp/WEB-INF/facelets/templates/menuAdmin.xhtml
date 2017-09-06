@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+
+<!-- Modal -->
+<h:form>
+    
+	<nav class="navbar navbar-static-top yamm ms-navbar ms-navbar-dark">
+		<div class="container container-full">
+			<div class="navbar-header">
+				<h:commandLink styleClass="navbar-brand" action="index.xhtml"> <!-- <img src="assets/img/demo/logo-navbar.png" alt=""> -->
+					<span class="ms-logo ms-logo-sm">M</span> <span class="ms-title">Material
+						<strong>Style</strong>
+				</span>
+				</h:commandLink>
+			</div>
+			<div id="navbar" class="navbar-collapse collapse">
+<!-- 			<f:ajax render=":contenido"> -->
+				<ul class="nav navbar-nav">
+					<li class="dropdown active">
+						<h:commandLink action="inicio"
+							styleClass="dropdown-toggle animated fadeIn animation-delay-4"
+							>Inicio
+<!-- 							<f:setPropertyActionListener target="#{menu.itemBean}" value="index" /> -->
+							<f:param id="itemBean" name="item" value="index"/>
+							
+<!-- 							<f:ajax render=":contenido"/> -->
+						</h:commandLink>
+					</li>
+					<li class="dropdown">
+						<a href="" class="dropdown-toggle animated fadeIn animation-delay-5" data-toggle="dropdown" data-hover="dropdown" data-name="page">Propuestas
+                                                    <i class="zmdi zmdi-chevron-down"></i>
+						</a>
+
+						<ul class="dropdown-menu dropdown-menu-left animated-2x animated fadeIn">
+                                                    <li class="dropdown-submenu">
+							<h:commandLink action="bancopro">Banco
+<!-- 									<f:param id="itemBean2" name="item" value="/general/propuestas/bancoPropuestas"/> -->
+<!-- 									<f:setPropertyActionListener target="#{menu.itemBean}" value="general/propuestas/bancoPropuestas" /> -->
+							</h:commandLink>
+
+							</li>
+							<li class="dropdown-submenu">
+							<h:commandLink action="registropro">Registro</h:commandLink>
+							</li>
+
+						</ul>
+						</li>
+						<li class="dropdown">
+							<h:commandLink action="contac"
+								styleClass="dropdown-toggle animated fadeIn animation-delay-4"
+								>Contacto
+	<!-- 							<i class="zmdi zmdi-chevron-down"></i> -->
+	<!-- 							<f:ajax render=":contenido"/> -->
+							</h:commandLink>
+						</li>
+						<li class="dropdown">
+						<h:commandLink action="acerca"
+							styleClass="dropdown-toggle animated fadeIn animation-delay-4"
+							>Acerca De
+<!-- 							<i class="zmdi zmdi-chevron-down"></i> -->
+<!-- 							<f:ajax render=":contenido"/> -->
+						</h:commandLink>
+						</li>
+					
+					<!-- <li class="btn-navbar-menu"><a href="javascript:void(0)" class="sb-toggle-left"><i class="zmdi zmdi-menu"></i></a></li> -->
+				</ul>
+				
+<!-- 			</f:ajax> -->
+			</div>
+			<!-- navbar-collapse collapse -->
+			<a href="javascript:void(0)" class="sb-toggle-left btn-navbar-menu">
+				<i class="zmdi zmdi-menu"></i>
+			</a>
+		</div>
+		<!-- container -->
+	</nav>
+</h:form>
+
+</ui:composition>
