@@ -38,6 +38,7 @@
         </script>
     </h:head>
     <h:body>
+        <h3>Etapa 1: <span class="label label label-success">#{msg['general.etapa1.titulo']}</span> / <span class="label label-primary">#{msg['general.etapa1.tarea1']}</span></h3>
         <h:form id="formFechas">
 
             <fieldset class="block-bordered paddingfield">
@@ -45,7 +46,7 @@
                 <div class="line center">
                     <div>
                         
-                            <label> Fecha Inicio:</label><label> Sin establecer:</label>
+                            <label>#{fechase['fecha.inicio']}:</label><label> #{fechase['fecha.sin.establecer']}:</label>
                             <p:calendar id="isemestre" value="#{fechas.isemestre}" showOn="button"
                                 pattern ="yyyy-MM-dd" locale="es"
                                 
@@ -55,7 +56,7 @@
                             <h:outputText id="prueba" value="#{fechas.isemestreD}"/>
                       
                         
-                            <label> Fecha Fin:</label><label> Sin establecer:</label>
+                            <label>#{fechase['fecha.fin']}:</label><label> #{fechase['fecha.sin.establecer']}:</label>
                             <p:calendar id="fsemestre" value="#{fechas.fsemestre}" showOn="button"
                                 mindate="#{fechas.isemestre}"  pattern="yyyy-MM-dd"
                                 locale="es" required="true" label="#{ui['calendar.end']}"
@@ -71,20 +72,20 @@
                     </div>
                 </div>
             </fieldset>
-            <h3 class="primary-color-dark margin-bottom-0 text-size-25 text-thin text-line-height-1 text-center"><b>Evaluaciones</b></h3>
+            <h3 class="primary-color-dark margin-bottom-0 text-size-16 text-thin text-line-height-1 text-center"><b>Evaluaciones</b></h3>
             <fieldset class="block-bordered paddingfield">
                 <legend style="color:blue;font-weight:bold;">
-                    <h3 class="primary-color-dark margin-bottom-0 text-size-15 text-thin text-line-height-1 text-left"><b>Primera</b></h3>
+                    <h3 class="primary-color-dark margin-bottom-0 text-size-12 text-thin text-line-height-1 text-left"><b>Primera</b></h3>
                 </legend>
                 <div class="line">
                     <div class="margin">
                         <div class="s-5 m-8 l-4">
-                            <label> Fecha Inicio:</label><label> Sin establecer:</label>
+                            <label> #{fechase['fecha.inicio']}:</label><label>#{fechase['fecha.sin.establecer']}:</label>
                             <input name="ieva1" id="ieva1" class="required email border-radius text-l-size-16" placeholder="" title="" type="text" />
 
                         </div>
                         <div class="s-5 m-8 l-4"> 
-                            <label> Fecha Fin:</label><label> Sin establecer:</label>
+                            <label>#{fechase['fecha.fin']}:</label><label>#{fechase['fecha.sin.establecer']}:</label>
                             <input name="feva1" id="feva1" class="required email border-radius text-l-size-16" placeholder="" title="" type="text" />
                         </div>
 
@@ -96,17 +97,17 @@
             </fieldset>
             <fieldset class="block-bordered paddingfield">
                 <legend style="color:blue;font-weight:bold;">
-                    <h3 class="primary-color-dark margin-bottom-0 text-size-15 text-thin text-line-height-1 text-left"><b>Segunda</b></h3>
+                    <h3 class="primary-color-dark margin-bottom-0 text-size-12 text-thin text-line-height-1 text-left"><b>Segunda</b></h3>
                 </legend>
                 <div class="line">
                     <div class="margin">
                         <div class="s-5 m-8 l-4">
-                            <label> Fecha Inicio:</label><label> Sin establecer:</label>
+                            <label>#{fechase['fecha.inicio']}:</label><label>#{fechase['fecha.sin.establecer']}:</label>
                             <input name="ieva2" id="ieva2" class="required email border-radius text-l-size-16" placeholder="" title="" type="text" />
 
                         </div>
                         <div class="s-5 m-8 l-4"> 
-                            <label> Fecha Fin:</label><label> Sin establecer:</label>
+                            <label> #{fechase['fecha.fin']}:</label><label>#{fechase['fecha.sin.establecer']}:</label>
                             <input name="feva2" id="feva2" class="required email border-radius text-l-size-16" placeholder="" title="" type="text" />
                         </div>
 
@@ -118,17 +119,17 @@
             </fieldset>
             <fieldset class="block-bordered paddingfield">
                 <legend style="color:blue;font-weight:bold;">
-                    <h3 class="primary-color-dark margin-bottom-0 text-size-15 text-thin text-line-height-1 text-left"><b>Tercera</b></h3>
+                    <h3 class="primary-color-dark margin-bottom-0 text-size-12 text-thin text-line-height-1 text-left"><b>Tercera</b></h3>
                 </legend>
                 <div class="line">
                     <div class="margin">
                         <div class="s-5 m-8 l-4">
-                            <label> Fecha Inicio:</label><label> Sin establecer:</label>
+                            <label> #{fechase['fecha.inicio']}:</label><label> #{fechase['fecha.sin.establecer']}:</label>
                             <input name="ieva3" id="ieva3" class="required email border-radius text-l-size-16" placeholder="" title="" type="text" />
 
                         </div>
                         <div class="s-5 m-8 l-4"> 
-                            <label> Fecha Fin:</label><label> Sin establecer:</label>
+                            <label> #{fechase['fecha.fin']}:</label><label> #{fechase['fecha.sin.establecer']}:</label>
                             <input name="feva3" id="feva3" class="required email border-radius text-l-size-16" placeholder="" title="" type="text" />
                         </div>
 
@@ -140,17 +141,17 @@
             </fieldset>
             <fieldset class="block-bordered paddingfield">
                 <legend style="color:blue;font-weight:bold;">
-                    <h3 class="primary-color-dark margin-bottom-0 text-size-15 text-thin text-line-height-1 text-left"><b>Final</b></h3>
+                    <h3 class="primary-color-dark margin-bottom-0 text-size-12 text-thin text-line-height-1 text-left"><b>Final</b></h3>
                 </legend>
                 <div class="line">
                     <div class="margin">
                         <div class="s-5 m-8 l-4">
-                            <label> Fecha Inicio:</label><label> Sin establecer:</label>
+                            <label> #{fechase['fecha.inicio']}:</label><label> #{fechase['fecha.sin.establecer']}:</label>
                             <input name="ievaf" id="ievaf" class="required email border-radius text-l-size-16" placeholder="" title="" type="text" />
 
                         </div>
                         <div class="s-5 m-8 l-4"> 
-                            <label> Fecha Fin:</label><label> Sin establecer:</label>
+                            <label> #{fechase['fecha.fin']}:</label><label> #{fechase['fecha.sin.establecer']}:</label>
                             <input name="fevaf" id="fevaf" class="required email border-radius text-l-size-16" placeholder="" title="" type="text" />
                         </div>
 

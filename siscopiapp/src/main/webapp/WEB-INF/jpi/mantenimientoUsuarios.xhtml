@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <script type="text/javascript">
+
+
+            PrimeFaces.locales['es'] = {
+                closeText: 'Cerrar',
+                prevText: 'Anterior',
+                nextText: 'Siguiente',
+                monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+                monthNamesShort: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+                dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+                dayNamesShort: ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'],
+                dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+                weekHeader: 'Semana',
+                firstDay: 1,
+                isRTL: false,
+                showMonthAfterYear: false,
+                yearSuffix: '',
+                timeOnlyTitle: 'Solo hora',
+                timeText: 'Tiempo',
+                hourText: 'Hora',
+                minuteText: 'Minuto',
+                secondText: 'Segundo',
+                currentText: 'Fecha actual',
+                ampm: false,
+                month: 'Mes',
+                week: 'Semana',
+                day: 'Dia',
+                allDayText: 'Todo el dia'
+            };
+
+        </script>
+    </h:head>
+    <h:body>
+        <h3>Etapa 1: <span class="label label label-success">#{msg['general.etapa1.titulo']}</span> / <span class="label label-primary">#{msg['general.etapa1.tarea1.subtarea2']}</span></h3>
+        <h:form id="formUsuarios">
+
+            <div class="line padding-2x block-bordered border-radius" id="filtroBuscar">
+                <div class="margin">
+                    <div class="s-12 m-12 l-6">
+                        <input name="bususer" class="required email border-radius text-l-size-16" placeholder="" title="" type="radio" checked = "checked"/>
+                        <label>Email</label>
+                        <input name="emailb" class="required name border-radius text-l-size-16" placeholder="" title="" type="text"/>
+                    </div>
+                    <div class="s-12 m-12 l-6" id="busNombre">
+                        <input name="bususer" class="required email border-radius text-l-size-16" placeholder="" title="" type="radio" />
+                        <label>Nombre</label>
+                        <input name="nombreb" class="required name border-radius text-l-size-16" placeholder="Nombre(s)" title="" type="text" />
+                        <input name="apb" class="required name border-radius text-l-size-16" placeholder="Apellido Paterno" title="" type="text" />
+                        <input name="amb" class="required name border-radius text-l-size-16" placeholder="Apellido Materno" title="" type="text" />
+                    </div>
+
+                </div>
+                <div class="s-12 text-center"><button id="buscar" class="submit-form button background-primary border-radius text-white" type="button">Buscar</button></div>
+            </div>
+
+
+            <div class="s-12" style="display:none" id="tablabuscar">
+                <h2 class="text-primary margin-bottom-0 text-size-30 text-thin text-line-height-1 text-center">Resultados Búsqueda</h2>
+                <div class="margin">
+                    <table id="tusuarios">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre Completo</th>
+                                <th>Semestre Alta</th>
+                                <th>Email</th>
+                                <th>Activo</th>
+                                <th>Más Inf</th>
+                                <th>Baja</th>
+                                <th>Modificar</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>001</td>
+                                <td>Juan José Rivera Alemán</td>
+                                <td>Ene-Jun 2017</td>
+                                <td>prueba@prueba.com</td>
+                                <td>Si</td>
+                                <td><a href="#buscarU"><img src="img/sgaa_icono_informacion.png" alt="mas"/></a></td>
+                                <td><a href="#borrarU"><img src="img/Delete_Icon.png" alt="mas"/></a></td>
+                                <td><a href="#modificarU"><img src="img/edit.png" alt="mas"/></a></td>
+                            </tr>
+                            <tr>
+                                <td>002</td>
+                                <td>Sofía Castro Zarate</td>
+                                <td>Ago-Dic 2017</td>
+                                <td>sofia@prueba.com</td>
+                                <td>Si</td>
+                                <td><a href="#buscarU"><img src="img/sgaa_icono_informacion.png" alt="mas"/></a></td>
+                                <td><a href="#borrarU"><img src="img/Delete_Icon.png" alt="mas"/></a></td>
+                                <td><a href="#modificarU" class="mu"><img src="img/edit.png" alt="mas"/></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="s-12 text-center"><button id="otrabuscar" class="submit-form button background-primary border-radius text-white" type="submit">Otra Búsqueda</button></div>
+            </div>
+        </h:form>
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <h:outputScript name="js/jquery-3.2.0.js"></h:outputScript>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery-ui.js" />
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/funcionesJPIUsers.js" />
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/ui-datepicker-es-MX.js" />
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery.dataTables.min.js" />
+        <script type="text/javascript">
+
+        </script>
+    </h:body>
+</html>
+
