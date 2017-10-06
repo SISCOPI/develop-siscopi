@@ -98,7 +98,164 @@
                     </div>
                 </div>
             </div>
+            <div class="fix" id="horario">
+                <h2 class="text-secondary margin-bottom-0 text-size-10 text-center">Horario</h2>
 
+                <table id="thorario" class="borderTable">
+                    <thead class="lightblue">
+                        <tr>
+                            <th></th>
+                            <th>Lun</th>
+                            <th>Mar</th>
+                            <th>Mie</th>
+                            <th>Jue</th>
+                            <th>Vie</th>
+                            <th>Sab</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+            <div class="s-12 text-center margin2x ">
+			<button class="border-radius text-white cancel-btn" type="button" onclick="salir(2)">Cancelar</button>
+			
+			<button class="submit-form button background-primary border-radius text-white" type="submit" onclick="anteriorSiguiente(1)">Siguiente</button>
+            </div>
+            <div id="existeProfesor" title="Seleccionar Profesor">
+			<table id="profesores">
+				<thead>
+					<tr>
+						<th>grado</th>
+						<th>Nombre</th>
+						<th>Apellido Paterno</th>
+						<th>Apellido Materno</th>
+						<th>email</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>DR</td>
+						<td>Hugo</td>
+						<td>Domingo</td>
+						<td>Casas</td>
+						<td>hugogmail.com</td>
+					</tr>
+					<tr>
+						<td>DRA</td>
+						<td>Sofia</td>
+						<td>Torres</td>
+						<td>Mora</td>
+						<td>sofia@gmail.com</td>
+					</tr>
+					<tr>
+						<td>Ing</td>
+						<td>Sergio</td>
+						<td>Portillo</td>
+						<td>Zamora</td>
+						<td>sergiogmail.com</td>
+					</tr>
+					<tr>
+						<td>Ing</td>
+						<td>Juan</td>
+						<td>Carrillo</td>
+						<td>Zamora</td>
+						<td>juangmail.com</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		 </div>
+        <div class="section background-white" id="altaAsignaturaAplica" style="display:none">
+		<form class="customform" action="">
+			<fieldset>
+				<legend>
+					<h2 class="text-primary margin-bottom-0 text-size-10 text-center">Asignatura</h2>
+				</legend>
+			
+		 
+				<div class="margin">
+					<div class="s-10 m-12 l-2">
+						<label class="text-size-14">Clave</label>
+						<label class="text-size-16 text-secondary" id="lclavea"/>
+					</div>
+					<div class="s-10 m-12 l-6">
+						<label class="text-size-14">Asignatura</label>
+						<label class="text-size-16 text-secondary" id="lasignatura"/>
+					</div>
+					<div class="s-10 m-12 l-4">
+						<label class="text-size-14">Grupo</label>
+						<label class="text-size-16 text-secondary" id="lgrupoa"/>
+					</div>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>
+					<h2 class="text-primary margin-bottom-0 text-size-10 text-center">Profesor</h2>
+				</legend>
+				
+				<div class="margin" id="datosProfesor">
+					 <div class="s-10 m-12 l-4">
+						<label> Nombre:</label>
+						<label class="text-size-16 text-secondary" id="lnombrep"/>
+					 </div>
+					 <div class="s-10 m-12 l-4">
+						<label> Apellido Paterno:</label>
+						<label class="text-size-16 text-secondary" id="lapp"/>
+					 </div>
+					 <div class="s-10 m-12 l-4">
+						<label> Apellido Materno:</label>
+						<label class="text-size-16 text-secondary" id="lamp"/>
+					 </div>
+
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>
+					<h2 class="text-primary margin-bottom-0 text-size-10 text-center">Horario</h2>
+				</legend>
+					<table>
+						<thead>
+							<tr>
+								<th>Lunes</th>
+								<th>Martes</th>
+								<th>Miercoles</th>
+								<th>Jueves</th>
+								<th>Viernes</th>
+								<th>Sabado</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="text-center">
+								<td>10:00 - 11:00</td>
+								<td>13:00 - 15:00</td>
+								<td>09:00 - 11:00</td>
+							</tr>
+							
+						</tbody>
+					</table>
+				
+			</fieldset>
+			<div class="s-12 text-center margin2x ">
+				<button class="border-radius text-white cancel-btn" type="button" onclick="salir(2)">Cancelar</button>
+				<button class="border-radius text-white prev-btn" type="button" onclick="anteriorSiguiente(0)">Anterior</button>
+				<button class="submit-form button background-primary border-radius text-white" type="submit" onclick="anteriorSiguiente(4)">Confirmar</button>
+			</div>
+		
+		</form>
+	
+	</div>
 
         </h:form>
         <link href="#{facesContext.externalContext.requestContextPath}/resources/css/jquery-ui.css" rel="stylesheet" type="text/css" />
