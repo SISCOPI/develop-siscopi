@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <h:head>
+        <title>Cargar Asignaturas</title>
+    </h:head>
+    <h:body>
+        <h3>Etapa 1: <span class="label label label-success">#{msg['general.etapa1.titulo']}</span> / <span class="label label-primary">#{msg['general.etapa1.tarea1.subtarea2']}</span></h3>
+        <h:form id="formAsignaturas" class="form-horizontal">
+            <h4 class="text-secondary margin-bottom-0 text-size-10 text-center">#{form['formulario.asignaturas.leyenda.asignatura']}</h4>
+            <fieldset>
+                <div class="form-group">
+                    <label for="inputName" class="col-md-2 control-label">#{form['formulario.asignaturas.clave']}</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="inputName" placeholder="clave"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="textAsignatura" class="col-md-2 control-label">#{form['formulario.asignaturas.asignatura']}</label>
+                    <div class="col-md-9">
+                        <input type="email" class="form-control" id="textAsignatura" placeholder="nombre"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="textGrupo" class="col-md-2 control-label">#{form['formulario.asignaturas.grupo']}</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="textGrupo" placeholder="grupo"/>
+                    </div>
+                </div>
+
+            </fieldset>
+            <h4 class="text-secondary margin-bottom-0 text-size-10 text-center">#{form['formulario.asignaturas.leyenda.profesor']}</h4>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div class="radio radio-primary">
+                        <label>
+                            <input type="radio" name="selectpro"  value="1" id="r1"/><label for="r1" class="text-size-16">Nuevo</label>
+                        </label>
+                        <label>
+                            <input type="radio" name="selectpro"  value="2" id="r2"/><label for="r1" class="text-size-16">Existente</label>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div id="datosProfesor">
+                <div class="form-group">
+                    <label for="textNombreP" class="col-md-2 control-label">#{msg['general.personas.nombre']}</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="textNombreP"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="textAPP" class="col-md-2 control-label">#{msg['general.personas.ap']}</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="textAPP"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="textAMP" class="col-md-2 control-label">#{msg['general.personas.am']}</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="textAMP" />
+                    </div>
+                </div>
+                <div class="form-group" id="gradop" style="display:none">
+                    <label for="textGrado" class="col-md-2 control-label">#{msg['general.personas.grado']}</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="textGrado" />
+                    </div>
+                </div>
+                <div class="form-group" id="email" style="display:none">
+                    <label for="textEmail" class="col-md-2 control-label">#{msg['general.personas.email']}</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="textemail"/>
+                    </div>
+                </div>
+                <div class="right" style="display:none">
+                    <a href="#buscarP"><img src="img/lupa.png" alt="mas"/></a>
+                </div>
+            </div>
+            <div  style="display:none" id="nuevoProfesor">
+                <div class="form-group">
+                    <label for="textNombrePN" class="col-md-2 control-label">#{msg['general.personas.nombre']}</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="textNombrePN"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="textAPPN" class="col-md-2 control-label">#{msg['general.personas.ap']}</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="textAPPN"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="textAMPN" class="col-md-2 control-label">#{msg['general.personas.am']}</label>
+                    <div class="col-md-9">
+                        <input type="text" class="form-control" id="textAMPN" />
+                    </div>
+                </div>
+            </div>
+            <div class="fix" id="horario">
+                <h2 class="text-secondary margin-bottom-0 text-size-10 text-center">Horario</h2>
+
+                <table id="thorario" class="borderTable">
+                    <thead class="lightblue">
+                        <tr>
+                            <th></th>
+                            <th>Lun</th>
+                            <th>Mar</th>
+                            <th>Mie</th>
+                            <th>Jue</th>
+                            <th>Vie</th>
+                            <th>Sab</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+            <div class="s-12 text-center margin2x ">
+			<button class="border-radius text-white cancel-btn" type="button" onclick="salir(2)">Cancelar</button>
+			
+			<button class="submit-form button background-primary border-radius text-white" type="submit" onclick="anteriorSiguiente(1)">Siguiente</button>
+            </div>
+            <div id="existeProfesor" title="Seleccionar Profesor">
+			<table id="profesores">
+				<thead>
+					<tr>
+						<th>grado</th>
+						<th>Nombre</th>
+						<th>Apellido Paterno</th>
+						<th>Apellido Materno</th>
+						<th>email</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>DR</td>
+						<td>Hugo</td>
+						<td>Domingo</td>
+						<td>Casas</td>
+						<td>hugogmail.com</td>
+					</tr>
+					<tr>
+						<td>DRA</td>
+						<td>Sofia</td>
+						<td>Torres</td>
+						<td>Mora</td>
+						<td>sofia@gmail.com</td>
+					</tr>
+					<tr>
+						<td>Ing</td>
+						<td>Sergio</td>
+						<td>Portillo</td>
+						<td>Zamora</td>
+						<td>sergiogmail.com</td>
+					</tr>
+					<tr>
+						<td>Ing</td>
+						<td>Juan</td>
+						<td>Carrillo</td>
+						<td>Zamora</td>
+						<td>juangmail.com</td>
+					</tr>
+				</tbody>
+			</table>
+			
+		 </div>
+        <div class="section background-white" id="altaAsignaturaAplica" style="display:none">
+		<form class="customform" action="">
+			<fieldset>
+				<legend>
+					<h2 class="text-primary margin-bottom-0 text-size-10 text-center">Asignatura</h2>
+				</legend>
+			
+		 
+				<div class="margin">
+					<div class="s-10 m-12 l-2">
+						<label class="text-size-14">Clave</label>
+						<label class="text-size-16 text-secondary" id="lclavea"/>
+					</div>
+					<div class="s-10 m-12 l-6">
+						<label class="text-size-14">Asignatura</label>
+						<label class="text-size-16 text-secondary" id="lasignatura"/>
+					</div>
+					<div class="s-10 m-12 l-4">
+						<label class="text-size-14">Grupo</label>
+						<label class="text-size-16 text-secondary" id="lgrupoa"/>
+					</div>
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>
+					<h2 class="text-primary margin-bottom-0 text-size-10 text-center">Profesor</h2>
+				</legend>
+				
+				<div class="margin" id="datosProfesor">
+					 <div class="s-10 m-12 l-4">
+						<label> Nombre:</label>
+						<label class="text-size-16 text-secondary" id="lnombrep"/>
+					 </div>
+					 <div class="s-10 m-12 l-4">
+						<label> Apellido Paterno:</label>
+						<label class="text-size-16 text-secondary" id="lapp"/>
+					 </div>
+					 <div class="s-10 m-12 l-4">
+						<label> Apellido Materno:</label>
+						<label class="text-size-16 text-secondary" id="lamp"/>
+					 </div>
+
+				</div>
+			</fieldset>
+			<fieldset>
+				<legend>
+					<h2 class="text-primary margin-bottom-0 text-size-10 text-center">Horario</h2>
+				</legend>
+					<table>
+						<thead>
+							<tr>
+								<th>Lunes</th>
+								<th>Martes</th>
+								<th>Miercoles</th>
+								<th>Jueves</th>
+								<th>Viernes</th>
+								<th>Sabado</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr class="text-center">
+								<td>10:00 - 11:00</td>
+								<td>13:00 - 15:00</td>
+								<td>09:00 - 11:00</td>
+							</tr>
+							
+						</tbody>
+					</table>
+				
+			</fieldset>
+			<div class="s-12 text-center margin2x ">
+				<button class="border-radius text-white cancel-btn" type="button" onclick="salir(2)">Cancelar</button>
+				<button class="border-radius text-white prev-btn" type="button" onclick="anteriorSiguiente(0)">Anterior</button>
+				<button class="submit-form button background-primary border-radius text-white" type="submit" onclick="anteriorSiguiente(4)">Confirmar</button>
+			</div>
+		
+		</form>
+	
+	</div>
+
+        </h:form>
+        <link href="#{facesContext.externalContext.requestContextPath}/resources/css/jquery-ui.css" rel="stylesheet" type="text/css" />
+        <h:outputScript name="js/jquery-3.2.0.js"></h:outputScript>
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/jquery-ui.js" />
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/funcionesJPIUsers.js" />
+        <script type="text/javascript" src="#{facesContext.externalContext.requestContextPath}/resources/js/ui-datepicker-es-MX.js" />
+        <script type="text/javascript">
+
+        </script>
+    </h:body>
+</html>
+
