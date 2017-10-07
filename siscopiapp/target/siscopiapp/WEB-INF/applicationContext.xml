@@ -16,7 +16,7 @@
 
 	<context:property-placeholder location="classpath:generales.properties" />
         <context:property-placeholder location="classpath:etiquetasPropuestas.properties" />
-
+        <context:property-placeholder location="classpath:fechas.properties" />
 	<!-- Configures the @Controller programming model -->
 
 <!-- 	<bean name="/inicio.htm" class="com.siscopi.springapp.controladores.HelloControler"/> -->

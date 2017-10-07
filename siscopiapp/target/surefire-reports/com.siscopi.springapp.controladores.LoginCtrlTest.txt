@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.siscopi.springapp.controladores.LoginCtrlTest
 -------------------------------------------------------------------------------
-Tests run: 7, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.13 sec <<< FAILURE!
-testSetPassword(com.siscopi.springapp.controladores.LoginCtrlTest)  Time elapsed: 0.04 sec  <<< FAILURE!
+Tests run: 7, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 1.018 sec <<< FAILURE!
+testSetPassword(com.siscopi.springapp.controladores.LoginCtrlTest)  Time elapsed: 0.328 sec  <<< FAILURE!
 java.lang.AssertionError: The test case is a prototype.
 	at org.junit.Assert.fail(Assert.java:88)
 	at com.siscopi.springapp.controladores.LoginCtrlTest.testSetPassword(LoginCtrlTest.java:105)
