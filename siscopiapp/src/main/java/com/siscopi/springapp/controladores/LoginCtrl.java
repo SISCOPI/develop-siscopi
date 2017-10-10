@@ -5,6 +5,9 @@
  */
 package com.siscopi.springapp.controladores;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
@@ -22,14 +25,23 @@ public class LoginCtrl {
     private String usuario;
     private String password;
     private String mensaje;
+    private String perfilSelect;  
+    private List<String> perfiles; 
+    private String username;
 
      public LoginCtrl() {
-         
+            perfiles = new ArrayList<String>();
+            perfiles.add("Administrador");
+            perfiles.add("Profesor");
+            perfiles.add("Asesor");
+           
     }
+
      public String loginCtrl(){
          if("admin".equalsIgnoreCase(usuario) && "admin".equalsIgnoreCase(password)) {
             mensaje ="sesion iniciada Admin";
-            return "SesionUsuario";
+            this.username="Benito Casas";
+            return "general/login/loginPerfiles";
     	}
         else if("profesor".equalsIgnoreCase(usuario) && "profesor".equalsIgnoreCase(password)){
             mensaje ="sesion iniciada Profesor";
@@ -73,6 +85,30 @@ public class LoginCtrl {
 
     public void setMensaje(String mensaje) {
         this.mensaje = mensaje;
+    }
+
+    public String getPerfilSelect() {
+        return perfilSelect;
+    }
+
+    public void setPerfilSelect(String perfilSelect) {
+        this.perfilSelect = perfilSelect;
+    }
+
+    public List<String> getPerfiles() {
+        return perfiles;
+    }
+
+    public void setPerfiles(List<String> perfiles) {
+        this.perfiles = perfiles;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
     
    

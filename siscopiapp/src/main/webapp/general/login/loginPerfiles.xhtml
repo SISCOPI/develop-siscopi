@@ -1,0 +1,54 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	
+	xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Login</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    </h:head>
+    <h:body>
+        <div class="bg-full-page bg-primary back-fixed">
+            <div class="mw-500 absolute-center">
+                <div class="card animated zoomInDown animation-delay-5">
+                    <div class="card-block">
+                        <h2 class="color-primary">Seleccione perfil</h2>
+                        <h3 class="color-primary-inverse">#{loginCtrl.username}</h3>
+                        <form>
+                            <fieldset>
+                                <div class="form-group label-floating">
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><i class="zmdi zmdi-account"></i></span>
+                                        <p:selectOneRadio id="city2" value="#{loginCtrl.perfilSelect}" layout="responsive" columns="1">
+                                             <f:selectItems value="#{loginCtrl.perfiles}" var="c" itemLabel="#{perfil}" itemValue="#{perfil}"/>
+                                        </p:selectOneRadio>
+                                    </div>
+                                </div>
+
+
+                                <div class="row ">
+                                    <div class="col-md-6">
+                                        <button class="btn btn-raised btn-primary btn-block">#{msg['general.botones.leyendas.aceptar']}<i class="zmdi zmdi-long-arrow-right no-mr ml-1"></i></button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button class="btn btn-primary btn-block"><i class="zmdi zmdi-account-add mr-1"></i>#{msg['general.botones.leyendas.cancelar']}</button>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="text-center animated fadeInUp animation-delay-7">
+                    <a href="index.html" class="btn btn-white"><i class="zmdi zmdi-home"></i>Regresar a inicio</a>
+                    
+                </div>
+            </div>
+        </div>
+    </h:body>
+    <link href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/style.light-blue-500.min.css" rel="stylesheet" type="text/css" />
+<link href="#{facesContext.externalContext.requestContextPath}/resources/assets/css/plugins.min.css" rel="stylesheet" type="text/css" />
+</html>
+
