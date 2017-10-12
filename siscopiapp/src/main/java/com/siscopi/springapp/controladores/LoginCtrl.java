@@ -5,29 +5,38 @@
  */
 package com.siscopi.springapp.controladores;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import org.apache.log4j.Logger;
+import org.apache.log4j.spi.LoggerFactory;
 
 /**
  *
  * @author Mary
  */
-@ManagedBean
-@RequestScoped
-public class LoginCtrl {
+@ManagedBean(name="login")
+@SessionScoped
+
+public class LoginCtrl implements Serializable {
 
     /**
      * Creates a new instance of LoginCtrl
      */
+    private static final long serialVersionUID = 1L;
     private String usuario;
     private String password;
     private String mensaje;
     private String perfilSelect;  
     private List<String> perfiles; 
     private String username;
+    private static final Logger logger = Logger.getLogger(LoginCtrl.class);
 
      public LoginCtrl() {
             perfiles = new ArrayList<String>();
@@ -59,9 +68,23 @@ public class LoginCtrl {
              
         }else {
             mensaje ="No existen  credenciales.";
-            return "index";
+            return "inicio";
     	}
      }
+     
+     public String iniciaSesion() {
+         logger.info("perfilSelect:"+perfilSelect);
+         System.out.println("perfilSelect:"+perfilSelect);
+//         perfilSelect="Administrador";
+         if(perfilSelect.equalsIgnoreCase("Administrador")){
+             
+             return "SesionUsuarioAdmin";
+         }
+         else{
+             return"index"; 
+         }
+	 
+    }
      
     public String getUsuario() {
         return usuario;
