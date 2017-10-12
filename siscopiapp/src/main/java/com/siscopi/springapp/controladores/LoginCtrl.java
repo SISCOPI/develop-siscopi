@@ -80,6 +80,12 @@ public class LoginCtrl implements Serializable {
              
              return "SesionUsuarioAdmin";
          }
+         else if(perfilSelect.equalsIgnoreCase("Profesor")){
+             return "SesionUsuarioPami";
+         }
+         else if(perfilSelect.equalsIgnoreCase("Asesor")){
+             return "SesionUsuarioAsesor";
+         }
          else{
              return"index"; 
          }
