@@ -1,0 +1,128 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <body>
+
+        <ui:composition template="/WEB-INF/facelets/templates/templateAdmin.xhtml">
+
+            <ui:define name="title">
+                <title>Sesi&oacute;n Administrador</title>
+            </ui:define>
+
+            <ui:define name="content">
+                <div class="card nav-tabs-ver-container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <ul class="nav nav-tabs-ver dropdown" role="tablist" aria-multiselectable="true">
+                                <li role="tab" class="alert alert-success alert-light alert-dismissible panel" id="sch1">
+                                    <a class="collapsed animated fadeIn animation-delay-4" role="button" data-toggle="collapse" data-parent="#slidebar-menu" href="#sc1" aria-expanded="false" aria-controls="sc1"><strong><i class="zmdi zmdi-check"></i>Etapa 1: #{msg['general.etapa1.titulo']}&nbsp;</strong>del 10/01 al 25/01 2018</a>
+                                    <ul id="sc1" class="panel-collapse collapse"  aria-labelledby="sch1">
+                                        <li class="panel" role="tab" id="sch2">
+                                            
+                                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#slidebar-menu" href="#sc2" aria-expanded="false" aria-controls="sc2"><i class="zmdi zmdi-check"></i> #{msg['general.etapa1.tarea1']}</a>
+                                                <ul id="sc2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="sch2">
+                                                    <li role="presentation">
+                                                      <a href="#fechas" aria-controls="fechas" role="tab" data-toggle="tab"><strong><i class="zmdi zmdi-check">#{msg['general.etapa1.tarea1.subtarea1']}</i></strong></a>
+                                                    </li>
+                                                    <li>
+                                                      <a href="#cargarAsignaturas" aria-controls="cargarAsignaturas" role="tab" data-toggle="tab"><strong><i class="zmdi zmdi-check">#{msg['general.etapa1.tarea1.subtarea2']}</i></strong></a>
+                                                    </li>
+                                                    <li>
+                                                      <a href="#manttoUsuarios" aria-controls="manttoUsuarios" role="tab" data-toggle="tab"><strong><i class="zmdi zmdi-check">#{msg['general.etapa1.tarea1.subtarea3']}</i></strong></a>
+                                                    </li>
+                                      
+                                                </ul>
+                                            </li>
+                                            <li data-hover="tab">
+                                                        <a href="#tab-2" aria-controls="home" role="tab" data-toggle="tab"><strong><i class="zmdi zmdi-check"></i>#{msg['general.etapa1.tarea2']}</strong></a>
+                                                    </li>
+                                                    <li data-hover="tab">
+                                                        <a href="#tab-3" aria-controls="home" role="tab" data-toggle="tab"><strong><i class="zmdi zmdi-check"></i>#{msg['general.etapa1.tarea3']}</strong></a>
+                                                    </li>
+                                                    <li data-hover="tab">
+                                                        <a href="#tab-4" aria-controls="home" role="tab" data-toggle="tab"><strong><i class="zmdi zmdi-check"></i>#{msg['general.etapa1.tarea4']}</strong></a>
+                                                    </li>
+                                                </ul>
+                                              
+                                </li>    
+                                        
+                                    
+                                
+                                
+                                
+                                <li role="presentation" class="alert alert-warning alert-light alert-dismissible"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><strong><i class="zmdi zmdi-alert-triangle"></i>Etapa 2: 1ra Evaluaci&oacute;n&nbsp;</strong></a></li>
+                                <li role="presentation" class="alert alert-info alert-light alert-dismissible"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><strong><i class="zmdi zmdi-info"></i>Etapa 3: 2da Evaluaci&oacute;n&nbsp;</strong></a></li>
+                                <li role="presentation" class="alert alert-info alert-light alert-dismissible"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab"><strong><i class="zmdi zmdi-info"></i>Etapa 4: 3ra Evaluaci&oacute;n&nbsp;</strong></a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-9 nav-tabs-ver-container-content">
+                            <div class="card-block">
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane" id="fechas">
+                                        <ui:include src="/WEB-INF/jpi/fechasGestion.xhtml" />
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="manttoUsuarios">
+                                        <ui:include src="/WEB-INF/jpi/mantenimientoUsuarios.xhtml" />
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="cargarAsignaturas">
+                                        <ui:include src="/WEB-INF/jpi/cargaAsignaturas.xhtml" />
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="profile">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi impedit dicta nam temporibus sunt debitis laudantium sequi accusamus corporis vel nostrum dolorum eos dolor earum explicabo totam sint assumenda, esse magnam, illo velit. Aliquam quisquam perferendis deserunt fugit id ut beatae pariatur nisi rerum. Recusandae natus laboriosam ex eos iure.</p>
+                                        <p>Animi neque ad eius voluptates dolor, excepturi, ipsam libero consequuntur vero iusto in. Consequuntur cupiditate repudiandae nisi illo accusamus doloremque ipsum dicta, voluptates obcaecati velit corrupti assumenda, est libero ratione consequatur modi aliquid non aperiam! Magni, beatae, adipisci architecto aut doloremque iste optio debitis cupiditate illo animi consequatur qui sint.</p>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="messages">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod quia ex nam? Eaque modi quam iure eius, enim laboriosam et vitae atque consequuntur commodi adipisci nostrum ratione, in nemo possimus saepe. Facere maiores a deleniti temporibus, alias neque tempore nulla, nihil cumque eligendi itaque eum dolorum dolore veniam delectus necessitatibus.</p>
+                                        <p>Voluptate maxime, pariatur aspernatur nulla. Ducimus amet, ipsam eum mollitia repellat praesentium fugiat nisi ut incidunt rerum. Blanditiis, commodi sequi eos, asperiores ipsa eaque officiis hic at iusto. Velit dolor eligendi, obcaecati, nisi et fugit neque ipsam saepe, magnam veritatis molestiae, praesentium voluptatum dolorem modi debitis quo! Provident in, ipsam.</p>
+                                    </div>
+                                    <div role="tabpanel" class="tab-pane" id="settings">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum provident, assumenda maxime labore, quod ratione ipsa vel reiciendis minus sit veritatis atque non facere. Ullam atque reprehenderit debitis nostrum, nihil laboriosam cupiditate totam doloremque velit distinctio nulla quisquam assumenda quod cum sequi consectetur voluptates necessitatibus ab placeat, voluptas alias sit.</p>
+                                        <p>Debitis iste asperiores nam voluptates repellat eveniet. Laboriosam, nam reprehenderit natus quam alias quo pariatur esse dolore voluptates enim fugiat minima corrupti animi nihil quia ratione quaerat magni, vero vitae hic numquam totam eligendi, incidunt doloremque! Obcaecati voluptatum, asperiores ut, laudantium velit earum eligendi laboriosam autem est ipsa quos! Dolor!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <table>
+                        <tr>
+
+                            <td>
+                                <div class="alert alert-black alert-light alert-dismissible" role="alert">
+                                    <strong><i class="zmdi zmdi-city"></i>En curso&nbsp;</strong>Actividades en fecha
+                                </div>
+                            </td>
+                            
+                            <td>
+                                <div class="alert alert-info alert-light alert-dismissible" role="alert">
+                                   
+                                    <strong><i class="zmdi zmdi-info"></i>No disponible&nbsp;</strong>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="alert alert-success alert-light alert-dismissible" role="alert">
+                                    
+                                    <strong><i class="zmdi zmdi-check"></i>Completada&nbsp;</strong>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="alert alert-warning alert-light alert-dismissible" role="alert">
+                                    
+                                    <strong><i class="zmdi zmdi-alert-triangle"></i>Advertencia</strong><p>Algunas o todas las Actividades</p><p> no han sido completadas de</p><p> acuerdo a las fechas</p>
+                                </div>
+                            </td>
+                
+                        </tr>
+                    </table>
+                </div>
+                
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>
