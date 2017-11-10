@@ -5,12 +5,15 @@
  */
 package com.siscopi.springapp.controladores;
 
+import com.siscopi.beans.negocio.Usuarios;
+import com.siscopi.dao.UsuarioDao;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  *
@@ -31,6 +34,12 @@ public class LoginCtrl implements Serializable {
     private String perfilSelect;  
     private List<String> perfiles; 
     private String username;
+    
+//    @Autowired
+    private Usuarios usuarios;
+//    @Autowired
+    private UsuarioDao usuarioDao;
+    
     private static final Logger logger = Logger.getLogger(LoginCtrl.class);
 
      public LoginCtrl() {
@@ -38,10 +47,21 @@ public class LoginCtrl implements Serializable {
             perfiles.add("Administrador");
             perfiles.add("Profesor");
             perfiles.add("Asesor");
+            usuarios=new Usuarios();
+            usuarioDao=new UsuarioDao();
            
     }
 
      public String loginCtrl(){
+         usuarios.setEmail(usuario);
+         usuarios.setContrasena(password);
+         usuarioDao.validaContrasena(usuarios);
+         if(usuarioDao.validaContrasena(usuarios)){
+             System.out.println("contrasena correcta");
+         }
+         else{
+             System.out.println("no entro. Validar");
+         }
          if("admin".equalsIgnoreCase(usuario) && "admin".equalsIgnoreCase(password)) {
             mensaje ="sesion iniciada Admin";
             this.username="Benito Casas";

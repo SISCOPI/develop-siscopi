@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 7/11/2017 12:29:30 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.siscopi.beans.negocio.CatMenus" table="CAT_MENUS" catalog="SISCOPI" optimistic-lock="version">
+        <id name="idCategoria" type="java.lang.Integer">
+            <column name="ID_CATEGORIA" />
+            <generator class="identity" />
+        </id>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="50" not-null="true" />
+        </property>
+        <property name="niveles" type="string">
+            <column name="NIVELES" length="25" />
+        </property>
+        <property name="nivelPadre" type="java.lang.Integer">
+            <column name="NIVEL_PADRE" />
+        </property>
+        <property name="visible" type="boolean">
+            <column name="VISIBLE" not-null="true" />
+        </property>
+        <property name="img" type="string">
+            <column name="IMG" length="100" />
+        </property>
+        <set name="rolesMenuses" table="ROLES_MENUS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_CATEGORIA" />
+            </key>
+            <one-to-many class="com.siscopi.beans.negocio.RolesMenus" />
+        </set>
+    </class>
+</hibernate-mapping>
