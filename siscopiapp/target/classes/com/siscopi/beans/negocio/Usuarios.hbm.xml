@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 7/11/2017 12:29:30 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.siscopi.beans.negocio.Usuarios" table="USUARIOS" catalog="SISCOPI" optimistic-lock="version">
+        <id name="idUsuario" type="java.lang.Integer">
+            <column name="ID_USUARIO" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="catGradoacademico" class="com.siscopi.beans.negocio.CatGradoacademico" fetch="select">
+            <column name="TIPO_GRADO" />
+        </many-to-one>
+        <property name="contrasena" type="string">
+            <column name="CONTRASENA" length="100" not-null="true" />
+        </property>
+        <property name="nombre" type="string">
+            <column name="NOMBRE" length="100" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="EMAIL" length="100" not-null="true" />
+        </property>
+        <property name="apPaterno" type="string">
+            <column name="AP_PATERNO" length="100" not-null="true" />
+        </property>
+        <property name="apMaterno" type="string">
+            <column name="AP_MATERNO" length="100" not-null="true" />
+        </property>
+        <set name="rolesUsuarioses" table="ROLES_USUARIOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_USUARIO" />
+            </key>
+            <one-to-many class="com.siscopi.beans.negocio.RolesUsuarios" />
+        </set>
+    </class>
+</hibernate-mapping>

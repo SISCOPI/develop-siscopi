@@ -11,16 +11,21 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import javax.inject.Inject;  
 
 /**
  *
  * @author Mary
  */
+@Component
 @ManagedBean(name="login")
 @SessionScoped
+
 
 public class LoginCtrl implements Serializable {
 
@@ -34,12 +39,15 @@ public class LoginCtrl implements Serializable {
     private String perfilSelect;  
     private List<String> perfiles; 
     private String username;
-    
-//    @Autowired
     private Usuarios usuarios;
-//    @Autowired
-    private UsuarioDao usuarioDao;
     
+    @Inject
+//    private Usuarios usuarios;
+    
+    private UsuarioDao usuarioDao= new UsuarioDao();
+//    @ManagedProperty(value="#{usuarioDao}")
+//    UsuarioDao usuarioDao;
+//    
     private static final Logger logger = Logger.getLogger(LoginCtrl.class);
 
      public LoginCtrl() {
@@ -48,14 +56,15 @@ public class LoginCtrl implements Serializable {
             perfiles.add("Profesor");
             perfiles.add("Asesor");
             usuarios=new Usuarios();
-            usuarioDao=new UsuarioDao();
+
            
     }
 
      public String loginCtrl(){
+         usuarios=new Usuarios();
          usuarios.setEmail(usuario);
          usuarios.setContrasena(password);
-         usuarioDao.validaContrasena(usuarios);
+         //usuarioDao.validaContrasena(usuarios);
          if(usuarioDao.validaContrasena(usuarios)){
              System.out.println("contrasena correcta");
          }
@@ -156,5 +165,8 @@ public class LoginCtrl implements Serializable {
     }
     
    
+    public void setUsuarioDao(UsuarioDao usuarioDao) {
+        this.usuarioDao = usuarioDao;
+    }
     
 }

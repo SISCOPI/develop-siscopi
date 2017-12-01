@@ -7,6 +7,10 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>siscopiapp Maven Webapp</name>
     <url>http://maven.apache.org</url>
+    <properties>
+        <springframework.version>4.3.8.RELEASE</springframework.version>
+        <hibernate.version>4.3.6.Final</hibernate.version>
+    </properties>
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -70,67 +74,64 @@
 
 
 	
-	<!-- Hibernate library dependecy start -->
-	<dependency>
-		<groupId>dom4j</groupId>
-		<artifactId>dom4j</artifactId>
-		<version>1.6.1</version>
-	</dependency>
+        <!-- Hibernate library dependecy start -->
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.6.1</version>
+        </dependency>
 
-	<dependency>
-		<groupId>commons-logging</groupId>
-		<artifactId>commons-logging</artifactId>
-		<version>1.1.1</version>
-	</dependency>
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>1.1.1</version>
+        </dependency>
 
-	<dependency>
-		<groupId>commons-collections</groupId>
-		<artifactId>commons-collections</artifactId>
-		<version>3.2.1</version>
-	</dependency>
+        <dependency>
+            <groupId>commons-collections</groupId>
+            <artifactId>commons-collections</artifactId>
+            <version>3.2.1</version>
+        </dependency>
 
-	<dependency>
-		<groupId>cglib</groupId>
-		<artifactId>cglib</artifactId>
-		<version>2.2</version>
-	</dependency>
-	<!-- Hibernate library dependecy end -->
-        <!-- https://mvnrepository.com/artifact/org.springframework/spring-orm -->
+        
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
-            <version>4.3.11.RELEASE</version>
+            <version>${springframework.version}</version>
         </dependency>
-        <!-- Apache Commons DBCP -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aspects</artifactId>
+            <version>${springframework.version}</version>
+        </dependency>
+        <!-- Hibernate -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>5.2.12.Final</version>
-            <type>jar</type>
+            <version>${hibernate.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-annotations</artifactId>
-            <version>3.5.6-Final</version>
-            <type>jar</type>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-dbcp2</artifactId>
+            <version>2.0</version>
         </dependency>
-<!--        <dependency>
-  <groupId>org.hibernate</groupId>
-  <artifactId>hibernate-commons-annotations</artifactId>
-  <version>3.2.0.Final</version>
-</dependency>-->
-        <dependency>
-        <groupId>org.hibernate</groupId>
-        <artifactId>hibernate-entitymanager</artifactId>
-        <version>5.1.0.Final</version>
-   </dependency>
-   <dependency>
-	<groupId>org.slf4j</groupId>
-	<artifactId>slf4j-log4j12</artifactId>
-	<version>1.4.3</version>
+        <!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
+<dependency>
+    <groupId>javax.inject</groupId>
+    <artifactId>javax.inject</artifactId>
+    <version>1</version>
 </dependency>
+
+        
     </dependencies>
     <build>
         <finalName>siscopiapp</finalName>
     </build>
+    <repositories>
+        <repository>
+            <id>unknown-jars-temp-repo</id>
+            <name>A temporary repository created by NetBeans for libraries and jars it could not identify. Please replace the dependencies in this repository with correct ones and delete this repository.</name>
+            <url>file:${project.basedir}/lib</url>
+        </repository>
+    </repositories>
 </project>

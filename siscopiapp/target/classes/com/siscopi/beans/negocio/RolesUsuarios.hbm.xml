@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 7/11/2017 12:29:30 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.siscopi.beans.negocio.RolesUsuarios" table="ROLES_USUARIOS" catalog="SISCOPI" optimistic-lock="version">
+        <id name="idRoluser" type="java.lang.Integer">
+            <column name="ID_ROLUSER" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="catRoles" class="com.siscopi.beans.negocio.CatRoles" fetch="select">
+            <column name="ID_ROL" />
+        </many-to-one>
+        <many-to-one name="usuarios" class="com.siscopi.beans.negocio.Usuarios" fetch="select">
+            <column name="ID_USUARIO" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

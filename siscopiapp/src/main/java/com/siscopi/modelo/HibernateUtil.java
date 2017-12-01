@@ -6,36 +6,40 @@
 package com.siscopi.modelo;
 
 import org.hibernate.SessionFactory;
-import org.hibernate.cfg.AnnotationConfiguration;
-import org.hibernate.cfg.Configuration;
 
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
+import org.hibernate.metamodel.Metadata;
+import org.hibernate.metamodel.MetadataSources;
+
+import org.hibernate.service.ServiceRegistry;
 
 /**
  *
  * @author Mary
  */
 public class HibernateUtil {
-private static final SessionFactory sessionFactory = buildSessionFactory();
+private static final SessionFactory sessionFactory;
 
-    private static SessionFactory buildSessionFactory() {
-        try {
-            // Create the SessionFactory from hibernate.cfg.xml
-            return new Configuration().configure().buildSessionFactory();
+	private static ServiceRegistry serviceRegistry;
 
-        }
-        catch (Throwable ex) {
-            // Make sure you log the exception, as it might be swallowed
-            System.err.println("Initial SessionFactory creation failed." + ex);
-            throw new ExceptionInInitializerError(ex);
-        }
-    }
+	static {
+		try {
+		StandardServiceRegistry standardRegistry = 
+		new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+		Metadata metaData = 
+		new MetadataSources(standardRegistry).getMetadataBuilder().build();
+			sessionFactory = metaData.getSessionFactoryBuilder().build();
+		} catch (Throwable th) {
 
-    public static SessionFactory getSessionFactory() {
-        return sessionFactory;
-    }
+			System.err.println("Enitial SessionFactory creation failed" + th);
+			throw new ExceptionInInitializerError(th);
 
-    public static void shutdown() {
-    	// Close caches and connection pools
-    	getSessionFactory().close();
-    }
+		}
+	}
+	public static SessionFactory getSessionFactory() {
+
+		return sessionFactory;
+
+	}
 }

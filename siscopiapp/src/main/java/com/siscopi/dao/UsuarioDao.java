@@ -11,47 +11,74 @@ import com.siscopi.modelo.HibernateUtil;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+import javax.inject.Inject;
+import javax.inject.Named;
+import javax.transaction.Transactional;
+
 
 import org.hibernate.Session;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
+//import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 /**
  *
  * @author Mary
  */
-public class UsuarioDao extends HibernateDaoSupport implements IUsuarioDao, Serializable{
-
+@Named
+public class UsuarioDao  implements IUsuarioDao, Serializable{
+    private static final long serialVersionUID = 1L;
+    @Inject  
+    private SessionFactory sessionFactory;  
+    public SessionFactory getSessionFactory() {  
+        return sessionFactory;  
+    }  
+    public void setSessionFactory(SessionFactory sessionFactory) {  
+        this.sessionFactory = sessionFactory;  
+    }
+   
+    @Override 
     public void addUser(Usuarios usuario) {
-        getHibernateTemplate().saveOrUpdate(usuario);
+//        getHibernateTemplate().saveOrUpdate(usuario);
     }
 
     public ArrayList<Usuarios> buscarUsuario() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+     @Override 
     public boolean validaContrasena(Usuarios usuario){
-        Session session = HibernateUtil.getSessionFactory().openSession();
+        
         try{
-      
-            session.beginTransaction();
+            
+            Session session = getSessionFactory().getCurrentSession(); 
+            Transaction trans = session.beginTransaction();
+            
+            //session.save(usuario);
+            
             Usuarios result = (Usuarios)session.createQuery("from Usuarios where EMAIL="+usuario.getEmail()+"and contrasena="+usuario.getContrasena()).uniqueResult();
-            if(result!=null){
+            trans.commit();
+            sessionFactory.close();
+            if(result==null){
+                System.out.println("no encontrado:"+usuario.getEmail());
                 return false;
             }
             else{
                 //buscar roles de usuario
-                System.out.println("usuario"+result.toString());
+                System.out.println("usuario"+result.getNombre()+result.getApPaterno()+result.getApMaterno());
                 //result.setRolesUsuarioses(traeRoles(result.getIdUsuario()));
                 return true;
             }
-            
+           
         }
         catch(Exception e){
+            
             return false;
         }
         finally {
-            session.clear();
+            
         }
 }
 public List<RolesUsuarios> traeRoles(Integer id){
@@ -59,7 +86,7 @@ public List<RolesUsuarios> traeRoles(Integer id){
     List<RolesUsuarios> list= new ArrayList();
     try{
         session.beginTransaction();
-        list=(List<RolesUsuarios>) getHibernateTemplate().find("from ROLES_USUARIOS where id_usuario="+id);
+//        list=(List<RolesUsuarios>) getHibernateTemplate().find("from ROLES_USUARIOS where id_usuario="+id);
     }
     catch(Exception e){
         

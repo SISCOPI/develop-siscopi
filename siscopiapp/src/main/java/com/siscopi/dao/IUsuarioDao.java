@@ -15,6 +15,7 @@ import java.util.ArrayList;
 public interface IUsuarioDao {
     
     public void addUser(Usuarios usuario);
+    public boolean validaContrasena(Usuarios usuario);
     
     
     
