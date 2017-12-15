@@ -7,13 +7,15 @@ package com.siscopi.dao;
 
 import com.siscopi.beans.negocio.RolesUsuarios;
 import com.siscopi.beans.negocio.Usuarios;
-import com.siscopi.modelo.HibernateUtil;
+import com.siscopi.util.HibernateUtil;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
+import org.hibernate.HibernateException;
+import org.hibernate.Query;
 
 
 import org.hibernate.Session;
@@ -31,13 +33,18 @@ import org.springframework.stereotype.Service;
 @Named
 public class UsuarioDao  implements IUsuarioDao, Serializable{
     private static final long serialVersionUID = 1L;
-    @Inject  
+    @Autowired  
     private SessionFactory sessionFactory;  
+    
+   
     public SessionFactory getSessionFactory() {  
         return sessionFactory;  
     }  
     public void setSessionFactory(SessionFactory sessionFactory) {  
         this.sessionFactory = sessionFactory;  
+    }
+    public UsuarioDao (){
+
     }
    
     @Override 
@@ -49,51 +56,59 @@ public class UsuarioDao  implements IUsuarioDao, Serializable{
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
      @Override 
-    public boolean validaContrasena(Usuarios usuario){
+    public Usuarios validaContrasena(Usuarios usuario){
         
         try{
             
-            Session session = getSessionFactory().getCurrentSession(); 
-            Transaction trans = session.beginTransaction();
+            Session session = HibernateUtil.getSessionFactory().openSession(); 
+            
             
             //session.save(usuario);
+            String query="from Usuarios where EMAIL=? and CONTRASENA=?";
+            Query select=session.createQuery(query);
+            select.setParameter(0, usuario.getEmail());
+            select.setParameter(1, usuario.getContrasena());
+            Usuarios result = (Usuarios)select.uniqueResult();
             
-            Usuarios result = (Usuarios)session.createQuery("from Usuarios where EMAIL="+usuario.getEmail()+"and contrasena="+usuario.getContrasena()).uniqueResult();
-            trans.commit();
-            sessionFactory.close();
+            
             if(result==null){
                 System.out.println("no encontrado:"+usuario.getEmail());
-                return false;
+                return result;
             }
             else{
                 //buscar roles de usuario
                 System.out.println("usuario"+result.getNombre()+result.getApPaterno()+result.getApMaterno());
                 //result.setRolesUsuarioses(traeRoles(result.getIdUsuario()));
-                return true;
+                return result;
             }
            
         }
-        catch(Exception e){
+        catch(HibernateException exception){
+            System.out.println("Problem creating session factory"+exception.getMessage());
             
-            return false;
+            return null;
+        }
+        catch(Exception e){
+            System.out.println("Problem creating session factory"+e.getMessage());
+            return null;
         }
         finally {
             
         }
 }
 public List<RolesUsuarios> traeRoles(Integer id){
-    Session session = HibernateUtil.getSessionFactory().openSession();
+    //Session session = HibernateUtil.getSessionFactory().openSession();
     List<RolesUsuarios> list= new ArrayList();
-    try{
-        session.beginTransaction();
-//        list=(List<RolesUsuarios>) getHibernateTemplate().find("from ROLES_USUARIOS where id_usuario="+id);
-    }
-    catch(Exception e){
-        
-    }
-     finally {
-            session.clear();
-    }
+//    try{
+//        session.beginTransaction();
+////        list=(List<RolesUsuarios>) getHibernateTemplate().find("from ROLES_USUARIOS where id_usuario="+id);
+//    }
+//    catch(Exception e){
+//        
+//    }
+//     finally {
+//            session.clear();
+//    }
     return list;
 }
     

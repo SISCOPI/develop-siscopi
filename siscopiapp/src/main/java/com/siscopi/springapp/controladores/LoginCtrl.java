@@ -65,7 +65,7 @@ public class LoginCtrl implements Serializable {
          usuarios.setEmail(usuario);
          usuarios.setContrasena(password);
          //usuarioDao.validaContrasena(usuarios);
-         if(usuarioDao.validaContrasena(usuarios)){
+         if(usuarioDao.validaContrasena(usuarios)!=null){
              System.out.println("contrasena correcta");
          }
          else{
