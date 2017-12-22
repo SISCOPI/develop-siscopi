@@ -5,11 +5,14 @@
  */
 package com.siscopi.springapp.controladores;
 
+import com.siscopi.beans.negocio.RolesUsuarios;
 import com.siscopi.beans.negocio.Usuarios;
 import com.siscopi.dao.UsuarioDao;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.SessionScoped;
@@ -37,7 +40,8 @@ public class LoginCtrl implements Serializable {
     private String password;
     private String mensaje;
     private String perfilSelect;  
-    private List<String> perfiles; 
+    private List<String> perfiles;
+    private HashMap roles;
     private String username;
     private Usuarios usuarios;
     
@@ -64,43 +68,52 @@ public class LoginCtrl implements Serializable {
          usuarios=new Usuarios();
          usuarios.setEmail(usuario);
          usuarios.setContrasena(password);
+         roles=new HashMap();
          //usuarioDao.validaContrasena(usuarios);
-         if(usuarioDao.validaContrasena(usuarios)!=null){
+         Usuarios usuarioBusqueda=usuarioDao.validaContrasena(usuarios);
+         if(usuarioBusqueda!=null){
              System.out.println("contrasena correcta");
+            // usuarioDao.traeRoles(usuarioBusqueda.getIdUsuario());
+             for(RolesUsuarios user:usuarioBusqueda.getRolesUsuarioses() ){
+                 System.out.println(","+user.getIdRoluser()+"-"+user.getCatRoles().getRol());
+                 roles.put(user.getCatRoles().getRol(),user.getIdRoluser());
+             }
+             setUsername(usuarioBusqueda.getNombre()+" "+usuarioBusqueda.getApPaterno()+" "+usuarioBusqueda.getApMaterno());
          }
          else{
              System.out.println("no entro. Validar");
          }
-         if("admin".equalsIgnoreCase(usuario) && "admin".equalsIgnoreCase(password)) {
-            mensaje ="sesion iniciada Admin";
-            this.username="Benito Casas";
-            return "general/login/loginPerfiles";
-    	}
-        else if("profesor".equalsIgnoreCase(usuario) && "profesor".equalsIgnoreCase(password)){
-            mensaje ="sesion iniciada Profesor";
-            return "SesionUsuario";
-             
-        }
-        else if("asesor".equalsIgnoreCase(usuario) && "asesor".equalsIgnoreCase(password)){
-            mensaje ="sesion iniciada Asesor";
-            return "SesionUsuario";
-             
-        }
-        else if("alumno".equalsIgnoreCase(usuario) && "alumno".equalsIgnoreCase(password)){
-            mensaje ="sesion iniciada Asesor";
-            return "SesionUsuario";
-             
-        }else {
-            mensaje ="No existen  credenciales.";
-            return "inicio";
-    	}
+         return "general/login/loginPerfiles";
+//         if("admin".equalsIgnoreCase(usuario) && "admin".equalsIgnoreCase(password)) {
+//            mensaje ="sesion iniciada Admin";
+//            this.username="Benito Casas";
+//            return "general/login/loginPerfiles";
+//    	}
+//        else if("profesor".equalsIgnoreCase(usuario) && "profesor".equalsIgnoreCase(password)){
+//            mensaje ="sesion iniciada Profesor";
+//            return "SesionUsuario";
+//             
+//        }
+//        else if("asesor".equalsIgnoreCase(usuario) && "asesor".equalsIgnoreCase(password)){
+//            mensaje ="sesion iniciada Asesor";
+//            return "SesionUsuario";
+//             
+//        }
+//        else if("alumno".equalsIgnoreCase(usuario) && "alumno".equalsIgnoreCase(password)){
+//            mensaje ="sesion iniciada Asesor";
+//            return "SesionUsuario";
+//             
+//        }else {
+//            mensaje ="No existen  credenciales.";
+//            return "inicio";
+//    	}
      }
      
      public String iniciaSesion() {
          logger.info("perfilSelect:"+perfilSelect);
          System.out.println("perfilSelect:"+perfilSelect);
 //         perfilSelect="Administrador";
-         if(perfilSelect.equalsIgnoreCase("Administrador")){
+         if(perfilSelect!=null & (Integer.parseInt(perfilSelect)==1 || Integer.parseInt(perfilSelect)==2)){
              
              return "SesionUsuarioAdmin";
          }
@@ -167,6 +180,22 @@ public class LoginCtrl implements Serializable {
    
     public void setUsuarioDao(UsuarioDao usuarioDao) {
         this.usuarioDao = usuarioDao;
+    }
+
+    public HashMap getRoles() {
+        return roles;
+    }
+
+    public void setRoles(HashMap roles) {
+        this.roles = roles;
+    }
+
+    public Usuarios getUsuarios() {
+        return usuarios;
+    }
+
+    public void setUsuarios(Usuarios usuarios) {
+        this.usuarios = usuarios;
     }
     
 }

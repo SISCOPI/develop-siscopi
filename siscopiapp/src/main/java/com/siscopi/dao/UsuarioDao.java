@@ -10,7 +10,9 @@ import com.siscopi.beans.negocio.Usuarios;
 import com.siscopi.util.HibernateUtil;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.transaction.Transactional;
@@ -96,20 +98,47 @@ public class UsuarioDao  implements IUsuarioDao, Serializable{
             
         }
 }
-public List<RolesUsuarios> traeRoles(Integer id){
+public Set<RolesUsuarios> traeRoles(Integer id){
     //Session session = HibernateUtil.getSessionFactory().openSession();
-    List<RolesUsuarios> list= new ArrayList();
-//    try{
-//        session.beginTransaction();
-////        list=(List<RolesUsuarios>) getHibernateTemplate().find("from ROLES_USUARIOS where id_usuario="+id);
-//    }
-//    catch(Exception e){
-//        
-//    }
-//     finally {
-//            session.clear();
-//    }
-    return list;
+    Set<RolesUsuarios> list=  new HashSet<RolesUsuarios>();
+    try{
+            
+            Session session = HibernateUtil.getSessionFactory().openSession(); 
+            
+            
+            //session.save(usuario);
+            String query="from RolesUsuarios where id_usuario=?";
+            Query select=session.createQuery(query);
+            select.setParameter(0, id);
+            
+            list = (Set<RolesUsuarios>)select;
+            
+            
+            if(list.isEmpty()){
+                System.out.println("roles no encontrados:");
+                return list;
+            }
+            else{
+                //buscar roles de usuario
+                System.out.println("roles"+list);
+                //result.setRolesUsuarioses(traeRoles(result.getIdUsuario()));
+                return list;
+            }
+           
+        }
+        catch(HibernateException exception){
+            System.out.println("Problem creating session factory"+exception.getMessage());
+            
+            return null;
+        }
+        catch(Exception e){
+            System.out.println("Problem creating session factory"+e.getMessage());
+            return null;
+        }
+        finally {
+            
+        }
+
 }
     
 }
