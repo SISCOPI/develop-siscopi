@@ -21,11 +21,15 @@
                         <!--<a href="" ><h:graphicImage value="resources/img/logo-image.png"/></a>-->
                     </div>
                     <div class="header-right">
-                        <h3><span class="color-black">Bienvenido Administrador</span>
+                        <h3>
+                            <span class="color-black">Bienvenido #{login.username}</span>
                             <a href="javascript:void(0)" class="btn-circle btn-circle-primary no-focus animated zoomInDown animation-delay-8" data-toggle="modal" data-target="#ms-account-modal">Salir</a>
                         </h3>
                         <div class="share-menu">
-
+                            #{login.perfilSelect}
+                            <p:selectOneMenu id="perfilc" value="#{login.perfilSelect}">
+                                <f:selectItems value="#{login.roles}" var="c"/>
+                            </p:selectOneMenu>
                         </div>
                         <div class="text-right">
                             <span class="color-success">#{msg['general.semestreactual']}</span>
