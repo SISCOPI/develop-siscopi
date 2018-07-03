@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 7/11/2017 12:29:30 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.siscopi.beans.negocio.CatRoles" table="CAT_ROLES" catalog="SISCOPI" optimistic-lock="version">
+        <id name="idRol" type="java.lang.Integer">
+            <column name="ID_ROL" />
+            <generator class="identity" />
+        </id>
+        <property name="rol" type="string">
+            <column name="ROL" length="50" not-null="true" />
+        </property>
+        <set name="rolesUsuarioses" table="ROLES_USUARIOS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_ROL" />
+            </key>
+            <one-to-many class="com.siscopi.beans.negocio.RolesUsuarios" />
+        </set>
+        <set name="rolesMenuses" table="ROLES_MENUS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ID_ROL" />
+            </key>
+            <one-to-many class="com.siscopi.beans.negocio.RolesMenus" />
+        </set>
+    </class>
+</hibernate-mapping>
